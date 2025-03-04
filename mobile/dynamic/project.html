@@ -1,0 +1,247 @@
+    <basis core="dbsource" request="seo" source="basiscore" name="db" lid="1" >
+        <member name="seolist" type="list" request="product" id="[##cms.query.id##]"></member>
+    </basis>
+    <basis core="dbsource" source="basiscore" name="json" lid="1" usedforid="[##cms.query.id##]" > 
+        <member request="json-ld" type="scalar" name="fq" /> 
+    </basis>
+
+    <basis core="dbsource" name="db" source="basiscore" lid="1" mid="19" usedforid="[##cms.query.id##]"> <member name="project" type="view"/> </basis>	
+    <basis core="dbsource" name="db" source="media" lid="1" sourcemid="19" usedforid="[##cms.query.id##]"> <member name="projectGallery" type="list" format="4"/> </basis>
+    <basis core="dbsource" name="db" source="basiscore" lid="1" mid="19" usedforid="[##cms.query.id##]"> <member name="relatedproduct" type="list" blgid="630" size="264x240"/> </basis>	
+
+
+    <!DOCTYPE html>
+    <html lang="fa">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <basis core="print" datamembername="db.seolist">
+            <face>
+                <title>[##cms.seo.title|db.seolist.title##]</title>
+                <meta name="description" content="[##cms.seo.description|db.seolist.description##]" />
+            </face>
+        </basis>
+        <link rel="stylesheet" href="[##cms.cms.cdn##]/css/swiper-bundle.min.css">
+        <basis core="call" file="style.inc"  pageindex="[##cms.cms.pageindex##]"/>
+    </head>
+
+    <body>
+        <main class="projectShow bg-StarDust50" dir="rtl">
+            <basis core="call" file="header1.inc" pageindex="[##cms.cms.pageindex##]" />
+
+            <section class="section1">
+                <div class="breadCrumb pt-[88px] w-90p mx-auto">
+                    <a href="/" class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
+                        خانه
+                    </a>
+                    <span class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
+                        .
+                    </span>
+                    
+                    <a href="/project-list.bc" class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
+                        پروژه ها
+                    </a>
+
+                    <basis core="print" datamembername="db.project">
+                        <layout>
+                            @child
+                        </layout>
+                        
+                        <face filter="TypeID=150">
+                            <span class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
+                                .
+                            </span>
+                            
+                            <span class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
+                                @Answer
+                            </span>
+                        </face>
+                    </basis>
+
+                </div>
+                <div class="lSection mb-9 relative w-90p mx-auto ">
+                    <div class="">
+                        <basis core="print" datamembername="db.project">
+                        
+                            <face filter="TypeID=150"> 
+                                <h1 class="font-IRANSansWebFaNum700 text-xl text-StarDust950 leading-[35px] mb-3">
+                                @Answer
+                                </h1>
+                                
+                            </face>
+                        </basis>
+                        <basis core="print" datamembername="db.project">
+                            <layout>
+                                <div class="para font-IRANSansWebFaNum400 text-base text-justify text-StarDust800">
+                                
+                                        @child
+                                </div>
+                            </layout>
+                        
+                            <face filter="TypeID=200">
+                                <p>
+
+                                    @Answer
+                                </p>
+                            </face>
+                        </basis>
+                    </div>
+
+                    <div class="scrollBtm overflow-hidden cursor-pointer w-fit mt-1 ">
+                        <p class="font-IRANSansWebFaNum400 text-lg leading-8 text-StarDust950">
+                            اسکرول کنید
+                        </p>
+                        <span class="line block my-1.5 w-full h-px bg-StarDust950"></span>
+                        <svg class="mx-auto" width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.28025 5.46975C5.08329 5.47009 4.88821 5.43151 4.70621 5.35621C4.52422 5.28092 4.3589 5.1704 4.21975 5.031L0.25 1.0605L1.3105 0L5.28025 3.96975L9.25 0L10.3105 1.0605L6.34075 5.03025C6.20167 5.16978 6.03637 5.28044 5.85437 5.35587C5.67237 5.43129 5.47726 5.46999 5.28025 5.46975Z" fill="#2B2C2C"/>
+                            </svg>
+                            
+
+                    </div>
+                </div>
+                <div class="rSection relative mb-8">
+                    <basis core="print" datamembername="db.projectGallery">
+                    
+                        <face filter="ord=51">
+                            <div class="imgS relative after:absolute after:inset-0 after:bg-gradient-to-b after:from-gray-800/75 after:via-gray-800/0 after:to-gray-800/75">
+                                <img class="w-full" src="[##cms.cms.cdn##]/@largeIMG" alt="@name">
+                            </div>
+                            
+                        </face>
+                    </basis>
+                </div>
+                
+
+                
+            </section>
+            <section class="section2 ">
+                <div class=" w-90p mx-auto">
+                    <div class="rightSection">
+                        <basis core="print" datamembername="db.projectGallery">
+                        
+                            <face filter="ord=52">
+                                <div class="imgS mb-6">
+                                    <img class="w-full" src="[##cms.cms.cdn##]/@largeIMG" alt="@name">
+                                </div>
+                                
+                            </face>
+                        </basis>
+                    </div>
+                    <div class="leftSection mb-1">
+                        <basis core="print" datamembername="db.project">
+                            <layout>
+                                <h2 class="font-IRANSansWebFaNum700 mb-3 text-xl leading-[35px] text-StarDust950">
+                                    توضیحات پروژه
+                                </h2>
+                                <div class="para font-IRANSansWebFaNum400 text-base text-StarDust800 leading-7">
+                                    
+                                    @child
+                                </div>
+                            </layout>
+                    
+                            <face filter="TypeID=144">
+                                @Answer
+                            </face>
+                        </basis>
+                    </div>
+                </div>
+            </section>
+
+            <basis core="print" datamembername="db.projectGallery">
+                <layout>
+                    <section class="section3 w-90p mb-14 mx-auto relative">
+                        <div class="swiper gallerySlider">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                            <!-- Slides -->
+                        
+                            @child
+                            </div>
+                    
+                        </div>
+                        <div class="prevSlider w-[24px] h-[24px] flex items-center justify-center absolute z-1 cursor-pointer right-4 top-[calc(50%-24px)]">
+                            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.12143 13.414L7.41443 8.121C7.78937 7.74594 8 7.23733 8 6.707C8 6.17667 7.78937 5.66806 7.41443 5.293L2.12143 0L0.707427 1.414L5.99643 6.707L0.703427 12L2.12143 13.414Z" fill="white"/>
+                                </svg>
+                                
+                                
+                        </div>
+                        <div class="nextSlider w-[24px] h-[24px] flex items-center justify-center absolute z-1 cursor-pointer left-4 top-[calc(50%-24px)]">
+                            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.87857 13.414L0.585573 8.121C0.210631 7.74594 0 7.23733 0 6.707C0 6.17667 0.210631 5.66806 0.585573 5.293L5.87857 0L7.29257 1.414L2.00357 6.707L7.29657 12L5.87857 13.414Z" fill="white"/>
+                                </svg>
+                                
+                        </div>
+                    </section>
+                    
+                </layout>   
+        
+                <face filter="ord=50">
+                    <div class="swiper-slide">
+                        <div class="imgS">
+                            <img class="w-full" src="[##cms.cms.cdn##]/@largeIMG" alt="@name">
+                        </div>
+                    </div>
+                </face>
+            </basis>
+
+
+            <basis core="print" datamembername="db.relatedproduct">
+                <layout>
+                    <section class="section4 w-90p mx-auto mb-16">
+                        <h3 class="mb-8 font-IRANSansWebFaNum700 text-xl leading-[35px] text-StarDust950">
+                            محصولات مرتبط
+                        </h3>
+            
+                        <div class="swiper projectSlider">
+                            <div class="swiper-wrapper">
+
+                                @child
+                            </div>
+                        </div>
+                    </section>
+                    
+                </layout>
+                
+                <face>
+                    <div class="swiper-slide">
+                        <div class="projectBox">
+                            <a href="/@link" class="group/proj" title="@title">
+                                <div class="imgS">
+                                    <img class="w-full grayscale-100 duration-1000 group-hover/proj:grayscale-0" src="[##cms.cms.cdn##]/@00264X00240prp" alt="@title" >
+                                </div>
+                                <h2 class="font-IRANSansWebFaNum700 text-lg leading-[32px] text-StarDust800 mb-2  ">
+                                @title
+                                </h2>
+            
+                                <div class="more w-fit flex items-center gap-x-1.5   relative after:absolute after:bg-StarDust800 after:right-0 after:bottom-0 after:w-0 after:h-px after:transition-all after:duration-700 group-hover/proj:after:w-full">
+                                    <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.28174 0.499878L0.995655 2.77063C0.677501 3.10175 0.5 3.54231 0.5 4.00002C0.5 4.45774 0.677501 4.89758 0.995655 5.22869L3.28174 7.50002L4.10657 6.68072L1.98791 4.58335L14.5 4.58336L14.4998 3.41669L1.98791 3.41669L4.10657 1.31918L3.28174 0.499878Z" fill="#58585A"/>
+                                        </svg>
+                                    <span class="font-IRANSansWebFaNum400 text-base text-StarDust800">
+                                        مشاهده‌ی پروژه
+                                    </span>
+            
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                    
+                </face>
+            </basis>
+
+            <basis core="call" file="footer1.inc" pageindex="[##cms.cms.pageindex##]" />
+
+        </main>
+        <basis core="call" file="script.inc" pageindex="[##cms.cms.pageindex##]" />
+
+        <script src="[##cms.cms.cdn##]/_js/swiper-bundle11.0.6.min.js"></script>
+        <script src="[##cms.cms.cdn##]/js/project-mobile.js"></script>
+        <script type="application/ld+json"> 
+            [##json.fq.column1##] 
+            </script>
+    </body>
+
+    </html>

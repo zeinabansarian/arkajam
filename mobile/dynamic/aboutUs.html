@@ -1,0 +1,115 @@
+<basis core="dbsource" name="db" source="basiscore" lid="1" mid="1" usedforid="2374142"> <member name="aboutus" type="view"/> </basis>
+<basis core="dbsource" name="db" source="media" lid="1" sourcemid="1" usedforid="2374142"> <member name="aboutGallery" type="list"/> </basis>	
+
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درباره ما</title>
+    <meta name="description" content="درباره‌ی ما آرکاجام">
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
+</head>
+<body>
+    <main class="aboutUs bg-StarDust50" dir="rtl">
+        <basis core="call" file="header1.inc" pageindex="[##cms.cms.pageindex##]" />
+
+        <section class="section1 relative">
+            <div class="imgS relative after:absolute after:w-full after:h-full after:inset-0 after:bg-StarDust950/[0.5]">
+            <basis core="print" datamembername="db.aboutGallery">
+               
+                <face filter="ord=51">
+                    <img src="[##cms.cms.cdn##]/@largeIMG" class="w-full" alt="about us">
+                </face>
+            </basis>
+            </div>
+
+            <div class="title absolute top-0 left-0 right-0 z-1">
+                <div class="breadCrumb mt-[88px] w-90p mx-auto ">
+                    <a href="/" class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
+                        خانه
+                    </a>
+                    <span class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
+                        .
+                    </span>
+    
+                    <p class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
+                        درباره ما
+                    </p>
+                </div>
+
+                <basis core="print" datamembername="db.aboutus">
+                  
+                    <face filter="TypeID=150">
+                        <h1 class="mt-10 font-IRANSansWebFaNum700 text-2xl mb-3 text-StarDust50 text-center">
+                         @Answer
+                        </h1>
+                        
+                    </face>
+                </basis>
+
+                <basis core="print" datamembername="db.aboutus">
+                    <layout>
+                        <div class="para font-IRANSansWebFaNum400 text-base text-center text-StarDust50">
+                            @child
+                        </div>
+                    </layout>
+                    
+                    <face filter="TypeID=128">
+                        <p>
+@Answer
+                        </p>
+                        
+                    </face>
+                </basis>
+            </div>
+        </section>
+        <section class="section2 w-90p mx-auto mt-16 mb-8">
+          
+            <basis core="print" datamembername="db.aboutus">
+                <layout>
+                    <div class="para leading-[28px] font-IRANSansWebFaNum400 text-base text-justify text-StarDust800">
+                        
+                        @child
+                    </div>
+                </layout>
+            
+                <face filter="TypeID=250">
+                    @largetext
+                </face>
+            </basis>
+        </section>
+        <basis core="print" datamembername="db.aboutGallery">
+            <layout>
+                <section class="section3 min-h-[437px] flex flex-col items-center justify-center" style="background: url([##cms.cms.cdn##]/images/aboutPattern.png); background-size: 1280px; background-repeat: repeat;">
+                    @child
+                </section>
+            </layout>
+            
+            <face filter="format=9">
+                <h2 class="font-IRANSansWebFaNum700 leading-10 text-2xl mb-3 text-center text-StarDust950">
+                   @name
+                </h2>
+                <div class="para w-90p mx-auto text-center font-IRANSansWebFaNum400 mb-8 text-base leading-[28px] text-StarDust800">
+                    <p>
+@description
+                    </p>
+                </div>
+                <a href="/@largeIMG" download target="_blank" class="flex justify-center items-center gap-x-1.5 font-IRANSansWebFaNum400 text-base text-StarDust800">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.8333 9.33355V12.2502C12.8333 12.4049 12.7719 12.5533 12.6625 12.6627C12.5531 12.7721 12.4047 12.8335 12.25 12.8335H1.75C1.59529 12.8335 1.44692 12.7721 1.33752 12.6627C1.22812 12.5533 1.16667 12.4049 1.16667 12.2502V9.33355H0V12.2502C0 12.7143 0.184374 13.1595 0.512563 13.4876C0.840752 13.8158 1.28587 14.0002 1.75 14.0002H12.25C12.7141 14.0002 13.1592 13.8158 13.4874 13.4876C13.8156 13.1595 14 12.7143 14 12.2502V9.33355H12.8333Z" fill="#58585A"/>
+                        <path d="M7.01877 11.0833C7.24867 11.0837 7.47638 11.0387 7.68881 10.9508C7.90123 10.8629 8.0942 10.7339 8.25661 10.5712L10.5427 8.28333L9.71786 7.46083L7.59861 9.58067L7.58344 0H6.41678L6.43194 9.57133L4.32028 7.45967L3.49544 8.28333L5.78153 10.5694C5.94374 10.7323 6.13655 10.8616 6.34888 10.9498C6.5612 11.038 6.78886 11.0834 7.01877 11.0833Z" fill="#58585A"/>
+                        </svg>                        
+                        دانلود کاتالوگ                    
+                </a>
+                
+            </face>
+        </basis>
+        <basis core="call" file="footer1.inc" pageindex="[##cms.cms.pageindex##]" />
+
+    </main>
+    <basis core="call" file="script.inc" pageindex="[##cms.cms.pageindex##]" />
+
+</body>
+</html>

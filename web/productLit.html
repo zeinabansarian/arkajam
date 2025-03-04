@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لیست محصولات</title>
+    <meta name="description" content="لیست محصولات آرکاجام">
+    <link rel="stylesheet" href="assets/css/outputDesktop.css">
+</head>
+<body>
+    <main class="productList" dir="rtl">
+        <div class="breadCrumb mt-[88px] w-90p mx-auto">
+            <a href="/" class="inline font-IRANSansWebFaNum400 text-base leading-[28px] text-StarDust600">
+                خانه
+            </a>
+            <span class="inline font-IRANSansWebFaNum400 text-base leading-[28px] text-StarDust600">
+                .
+            </span>
+
+            <p class="inline font-IRANSansWebFaNum400 text-base leading-[28px] text-StarDust600">
+                پروژه ها
+            </p>
+        </div>
+
+        <h1 class="font-IRANSansWebFaNum700 mb-16 text-xl text-center leading-[35px] text-StarDust950">
+            محصولات آرکا جام کاوه
+        </h1>
+
+        <div class="filterSectio flex mb-16 justify-center gap-x-5">
+            <form action="" class="py-1.5 px-2.5  border flex justify-between items-center border-StarDust950">
+                <input id="searchInput" class="font-IRANSansWebFaNum400 outline-0 placeholder:font-IRANSansWebFaNum400 w-full placeholder:text-sm text-sm placeholder:text-StarDust600 text-StarDust600" type="text" placeholder="جست و جوی محصول">
+                <button class="cursor-pointer">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 16.9409L13.3098 12.2507C14.5281 10.7606 15.1271 8.85926 14.9829 6.93992C14.8387 5.02058 13.9623 3.2301 12.535 1.93881C11.1077 0.647526 9.23863 -0.0457634 7.31448 0.00234632C5.39034 0.050456 3.55829 0.836284 2.19729 2.19729C0.836284 3.55829 0.050456 5.39034 0.00234632 7.31448C-0.0457634 9.23863 0.647526 11.1077 1.93881 12.535C3.2301 13.9623 5.02058 14.8387 6.93992 14.9829C8.85926 15.1271 10.7606 14.5281 12.2507 13.3098L16.9409 18L18 16.9409ZM7.51398 13.506C6.32888 13.506 5.17038 13.1546 4.185 12.4962C3.19962 11.8377 2.43161 10.9019 1.97809 9.80703C1.52457 8.71213 1.40591 7.50734 1.63711 6.345C1.86831 5.18267 2.439 4.11499 3.27699 3.27699C4.11499 2.439 5.18267 1.86831 6.345 1.63711C7.50734 1.40591 8.71213 1.52457 9.80703 1.97809C10.9019 2.43161 11.8377 3.19962 12.4962 4.185C13.1546 5.17038 13.506 6.32888 13.506 7.51398C13.5042 9.10262 12.8723 10.6257 11.749 11.749C10.6257 12.8723 9.10262 13.5042 7.51398 13.506Z" fill="#808282"/>
+                        </svg>
+                        
+                </button>
+            </form>
+
+            <select name="" id="" class="py-1.5 selectFilter px-2.5 border border-StarDust950 outline-0 font-IRANSansWebFaNum400 text-sm text-StarDust600">
+
+                <option value="محصولات داخلی">
+                    محصولات داخلی
+                </option>
+                <option value="">
+                    محصولات داخلی
+                </option>
+            </select>
+        </div>
+
+        <section class="section2 w-90p mx-auto relative">
+            <div class="loaderContainer hidden h-[60vh] w-full absolute items-center justify-center inset-0 bg-white/[0.6] z-1">
+                <div class="loader"></div>
+            </div>
+            <div class="proListContainer grid grid-cols-3 gap-y-11 gap-x-10">
+                <basis core="print" datamembername="db.projectList">
+                  
+                    <face>
+                        <div class="projectBox p-5">
+                            <a href="/@link" class="group/proj" title="@title">
+                                <div class="imgS mb-2">
+                                    <img loading="lazy" class="w-full grayscale-100 duration-1000 group-hover/proj:grayscale-0" src="[##cms.cms.cdn##]/@00360X00240prp" alt="@title" >
+                                </div>
+                                <h2 class="font-IRANSansWebFaNum700 text-lg leading-[32px] text-StarDust800 mb-2  ">
+                                    @title
+                                </h2>
+        
+                                <div class="more w-fit flex items-center gap-x-1.5   relative after:absolute after:bg-StarDust800 after:right-0 after:bottom-0 after:w-0 after:h-px after:transition-all after:duration-700 group-hover/proj:after:w-full">
+                                    <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.28174 0.499878L0.995655 2.77063C0.677501 3.10175 0.5 3.54231 0.5 4.00002C0.5 4.45774 0.677501 4.89758 0.995655 5.22869L3.28174 7.50002L4.10657 6.68072L1.98791 4.58335L14.5 4.58336L14.4998 3.41669L1.98791 3.41669L4.10657 1.31918L3.28174 0.499878Z" fill="#58585A"/>
+                                        </svg>
+                                    <span class="font-IRANSansWebFaNum400 text-base text-StarDust800">
+                                        مشاهده‌ی پروژه
+                                    </span>
+        
+                                </div>
+                            </a>
+                        </div>
+                        
+                    </face>
+                </basis>
+               
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/productList.js"></script>
+</body>
+</html>

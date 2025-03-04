@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/outputMobile.css">
+</head>
+
+<body>
+    <header class="group/header z-[1000] w-full fixed top-0 h-[76px] flex items-center justify-center" dir="rtl">
+        <div class="w-90p mx-auto flex gap-x-4">
+            
+            <div class="rightSection group/toggleSearch toggleSearch grid grid-cols-4 w-full items-center">
+                <div class="menuBar group-[&.activeToggleSearch]/toggleSearch:hidden relative cursor-pointer">
+    
+                    <svg class="group-[&.darkHeader]/header:opacity-0 duration-500" width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24.5 9H0.5V11H24.5V9Z" fill="#2B2C2C"/>
+                        <path d="M24.5 17.5H0.5V19.5H24.5V17.5Z" fill="#2B2C2C"/>
+                        <path d="M24.5 0.5H0.5V2.5H24.5V0.5Z" fill="#2B2C2C"/>
+                    </svg>
+    
+                    <svg class="absolute inset-0 opacity-0 duration-500 group-[&.darkHeader]/header:opacity-100 group-[&.darkHeader]/header:z-1" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24.5 1.414L23.086 0L12.5 10.586L1.914 0L0.5 1.414L11.086 12L0.5 22.586L1.914 24L12.5 13.414L23.086 24L24.5 22.586L13.914 12L24.5 1.414Z" fill="white"/>
+                        </svg>
+                        
+                </div>
+                <div class="relative">
+                    <div class="searchBtn group/searchBtn cursor-pointer relative">
+                        <svg class="group-[&.activeSearchBtn]/searchBtn:opacity-0 group-[&.activeSearchBtn]/searchBtn:-z-1 duration-500" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path class="group-[&.darkHeader]/header:fill-white"
+                                d="M24 22.5879L17.7463 16.3342C19.3708 14.3475 20.1695 11.8123 19.9772 9.25323C19.7849 6.69411 18.6164 4.3068 16.7133 2.58508C14.8102 0.863367 12.3182 -0.0610178 9.75264 0.00312842C7.18711 0.0672747 4.74438 1.11504 2.92971 2.92971C1.11504 4.74438 0.0672747 7.18711 0.00312842 9.75264C-0.0610178 12.3182 0.863367 14.8102 2.58508 16.7133C4.3068 18.6164 6.69411 19.7849 9.25323 19.9772C11.8123 20.1695 14.3475 19.3708 16.3342 17.7463L22.5879 24L24 22.5879ZM10.0186 18.008C8.4385 18.008 6.89385 17.5394 5.58 16.6615C4.26616 15.7837 3.24215 14.5359 2.63745 13.076C2.03276 11.6162 1.87454 10.0098 2.18281 8.46C2.49109 6.91022 3.252 5.48666 4.36933 4.36933C5.48666 3.252 6.91022 2.49109 8.46 2.18281C10.0098 1.87454 11.6162 2.03276 13.076 2.63745C14.5359 3.24215 15.7837 4.26616 16.6615 5.58C17.5394 6.89385 18.008 8.4385 18.008 10.0186C18.0056 12.1368 17.1631 14.1676 15.6653 15.6653C14.1676 17.1631 12.1368 18.0056 10.0186 18.008Z"
+                                fill="#2B2C2C" />
+                        </svg>
+
+                        <svg class="absolute inset-0 opacity-0 -z-1 group-[&.activeSearchBtn]/searchBtn:opacity-100 group-[&.activeSearchBtn]/searchBtn:z-1 duration-500 " width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="group-[&.darkHeader]/header:fill-StarDust50" d="M24 1.414L22.586 0L12 10.586L1.414 0L0 1.414L10.586 12L0 22.586L1.414 24L12 13.414L22.586 24L24 22.586L13.414 12L24 1.414Z" fill="#2B2C2C"/>
+                            </svg>
+                            
+                    </div>
+                    <div class="searchForm origin-top scale-y-0 [&.activeSearchForm]:scale-y-100 duration-1000 [&.activeSearchForm]:opacity-100 opacity-0 w-[90vw] absolute top-20">
+                        <form class="flex justify-between w-full border-b-StarDust400 border-b" action="/search.bc">
+                            <input class="font-IRANSansWebFaNum400 outline-0 w-full text-sm text-StarDust950 placeholder:font-IRANSansWebFaNum400 placeholder:text-StarDust950 group-[&.darkHeader]/header:placeholder:text-StarDust50 group-[&.darkHeader]/header:text-StarDust400 py-1.5" type="search" name="q" placeholder="کلمه‌ی مورد نظر را جست و جو کنید">
+                            <button class="cursor-pointer" type="submit">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="group-[&.darkHeader]/header:fill-StarDust50" d="M18 16.9409L13.3098 12.2507C14.5281 10.7606 15.1271 8.85926 14.9829 6.93992C14.8387 5.02058 13.9623 3.2301 12.535 1.93881C11.1077 0.647526 9.23863 -0.0457634 7.31448 0.00234632C5.39034 0.050456 3.55829 0.836284 2.19729 2.19729C0.836284 3.55829 0.050456 5.39034 0.00234632 7.31448C-0.0457634 9.23863 0.647526 11.1077 1.93881 12.535C3.2301 13.9623 5.02058 14.8387 6.93992 14.9829C8.85926 15.1271 10.7606 14.5281 12.2507 13.3098L16.9409 18L18 16.9409ZM7.51398 13.506C6.32888 13.506 5.17038 13.1546 4.185 12.4962C3.19962 11.8377 2.43161 10.9019 1.97809 9.80703C1.52457 8.71213 1.40591 7.50734 1.63711 6.345C1.86831 5.18267 2.439 4.11499 3.27699 3.27699C4.11499 2.439 5.18267 1.86831 6.345 1.63711C7.50734 1.40591 8.71213 1.52457 9.80703 1.97809C10.9019 2.43161 11.8377 3.19962 12.4962 4.185C13.1546 5.17038 13.506 6.32888 13.506 7.51398C13.5042 9.10262 12.8723 10.6257 11.749 11.749C10.6257 12.8723 9.10262 13.5042 7.51398 13.506Z" fill="#2B2C2C"/>
+                                    </svg>
+                                    
+                            </button>
+                        </form>
+                    </div>
+                </div>
+      
+                <a class="duration-500 flex group-[&.activeToggleSearch]/toggleSearch:-z-1 group-[&.activeToggleSearch]/toggleSearch:opacity-0  font-IRANSansWebFaNum400 text-xl text-StarDust950 group-[&.darkHeader]/header:text-white" href="" title="EN">EN</a>
+                <a  class="phone toggleSearch group-[&.activeToggleSearch]/toggleSearch:-z-1 group-[&.activeToggleSearch]/toggleSearch:opacity-0  duration-500 flex [&.activeToggleSearch]:-z-1 [&.activeToggleSearch]:opacity-0">
+                   
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="group-[&.darkHeader]/header:fill-white"
+                            d="M14.2726 16.3434C11.3463 15.1041 9.0192 12.7716 7.78671 9.8424L11.2041 6.41903L4.91213 0.12207L1.72495 3.30824C1.17214 3.86421 0.735073 4.52427 0.439023 5.25025C0.142972 5.97623 -0.00617957 6.75371 0.000196097 7.53771C0.000196097 14.8227 9.29939 24.1219 16.5844 24.1219C17.3682 24.1285 18.1456 23.9795 18.8715 23.6834C19.5973 23.3873 20.2572 22.9501 20.8128 22.3971L24 19.2099L17.703 12.913L14.2726 16.3434ZM19.3926 20.9759C19.0229 21.3416 18.5844 21.6303 18.1023 21.8252C17.6203 22.0202 17.1043 22.1176 16.5844 22.1117C10.3196 22.1117 2.0104 13.8025 2.0104 7.53771C2.00448 7.0179 2.10183 6.50209 2.29679 6.0202C2.49176 5.5383 2.78046 5.09991 3.14616 4.73046L4.91213 2.9645L8.36666 6.41903L5.41669 9.369L5.66294 9.98613C6.38786 11.9253 7.52113 13.686 8.98595 15.1489C10.4508 16.6118 12.2129 17.7428 14.153 18.4652L14.7621 18.6973L17.703 15.7554L21.1576 19.2099L19.3926 20.9759Z"
+                            fill="#2B2C2C" />
+                    </svg>
+
+                </a>
+            </div>
+
+          
+            <div class="logo flex items-center justify-end">
+                <a class="block w-fit" href="/" title="صفحه نخست">
+                    <img src="../assets/images/Arka Logo 1.png" alt="صفحه نخست">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="megaHeader bg-StarDust50/[0.35] overflow-hidden backdrop-blur-md h-svh w-svw inset-0 fixed ease-[cubic-bezier(0.5,0,0.75,0)] duration-1000 -translate-y-full [&.activeMegaMenu]:translate-y-0">
+        <div class="videoContainer fixed inset-0 h-full w-full ">
+            <video autoplay muted loop class="object-cover h-full w-full duration-1000 opacity-0">
+                <source src="https://terrazabalear.com/wp-content/uploads/2023/03/terraza_balear___be_inspired-1080p-2.mp4">
+            </video>
+        </div>
+        <div class="menuItem flex flex-col duration-1000 justify-center items-center h-svh w-[43.75%] [&.activeListMenu]:bg-StarDust50/[0.35] [&.activeListMenu]:backdrop-blur-md z-1 relative mx-auto">
+          <div class="innerMenuItem">
+              <ul class="mb-16 translate-y-[40px] w-full max-w-[400px]">
+                  <li class="mb-6 overflow-hidden text-center">
+                      <a style="transform: translateY(100%);" class="btn-4 duration-500 w-full block font-IRANSansWebFaNum400 text-xl text-StarDust50" href="" title="درباره‌ی ما">
+                          درباره‌ی ما
+                      </a>
+                  </li>
+                  <li class="mb-6 overflow-hidden text-center">
+                      <a style="transform: translateY(100%);" class="btn-4 duration-500 w-full block font-IRANSansWebFaNum400 text-xl text-StarDust50" href="" title="محصولات">
+                         محصولات
+                      </a>
+                  </li>
+                  <li class="mb-6 overflow-hidden text-center">
+                      <a style="transform: translateY(100%);" class="btn-4 duration-500 w-full block font-IRANSansWebFaNum400 text-xl text-StarDust50" href="" title="پروژه‌ها">
+                         پروژه‌ها
+                      </a>
+                  </li>
+                  <li class="mb-6 overflow-hidden text-center">
+                      <a style="transform: translateY(100%);" class="btn-4 duration-500 w-full block font-IRANSansWebFaNum400 text-xl text-StarDust50" href="" title="تماس با ما">
+                         تماس با ما
+                      </a>
+                  </li>
+                  <li class="mb-6 overflow-hidden text-center">
+                      <a style="transform: translateY(100%);" class="btn-4 duration-500 w-full block font-IRANSansWebFaNum400 text-xl text-StarDust50" href="" title="مقالات">
+                         مقالات
+                      </a>
+                  </li>
+              </ul>
+              <div class="social flex justify-center items-center gap-x-6">
+                  <a href="" title="telegram">
+                      <img class="w-[18px]" src="assets/images/telegramHeader.svg" alt="telegram">
+                  </a>
+                  <a href="" title="linkdin">
+                      <img class="w-[18px]" src="assets/images/linkdin.svg" alt="linkdin">
+                  </a>
+                  <a href="" title="whatsapp">
+                      <img class="w-[18px]" src="assets/images/whatsapp.svg" alt="whatsapp">
+                  </a>
+                  <a href="" title="instagram">
+                      <img class="w-[18px]" src="assets/images/instagram.svg" alt="instagram">
+                  </a>
+              </div>
+
+          </div>
+        </div>
+    </div>
+
+
+    <script src="../assets/js/header-mobile.js"></script>
+</body>
+
+</html>

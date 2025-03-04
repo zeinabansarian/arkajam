@@ -1,0 +1,172 @@
+<basis core="dbsource" name="db" source="basiscore" lid="1" mid="20" catid="213460"> 
+    <member name="productList" type="list" typeid="144"  postsql=" select * from [db.productList] where title like '%[##cms.query.q##]%'"/>
+ </basis>	
+<basis core="dbsource" name="db" source="basiscore" lid="1" mid="19" catid="213463">
+     <member name="projectList" type="list" typeid="144" link="project.bc"  postsql=" select * from [db.projectList] where title like '%[##cms.query.q##]%'"/> 
+    </basis>
+<basis core="dbsource" name="db" source="basiscore" lid="1" mid="1" catid="213469"> 
+    <member name="blog" type="list" propertyid="7244" link="article.bc"  postsql=" select * from [db.blog] where title like '%[##cms.query.q##]%'"/> 
+</basis>
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتیجه جستجو برای [##cms.query.q##]</title>
+    <meta name="description" content="نتیجه جستجو برای [##cms.query.q##]">
+
+    <basis core="call" file="style.inc"  pageindex="[##cms.cms.pageindex##]"/>
+</head>
+
+<body>
+    <div class="searchPage bg-StarDust50 min-h-svh flex flex-col justify-between" dir="rtl">
+        <basis core="call" file="header1.inc"  pageindex="[##cms.cms.pageindex##]"/>
+
+        <div class="inner">
+            <div class="formContainer pt-[108px]">
+
+                <h1 class="mb-3 text-center font-IRANSansWebFaNum700 text-2xl leading-10">
+                    جست و جو
+                </h1>
+                <form class="mb-14 mx-auto w-90p flex items-center justify-center border border-StarDust950"
+                    role="search" id="searchform" action="/search.bc" method="get">
+                    <input type="search" name="q" placeholder="کلمه‌ی مورد نظر را جست و جو کنید"
+                        class="py-1.5 outline-0 w-full px-2.5 font-IRANSansWebFaNum400 text-sm leading-6 text-StarDust600 placeholder:font-IRANSansWebFaNum400 placeholder:text-sm placeholder:leading-6 placeholder:text-StarDust600">
+                    <button type="submit" class="cursor-pointer px-2.5">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M18 16.9409L13.3098 12.2507C14.5281 10.7606 15.1271 8.85926 14.9829 6.93992C14.8387 5.02058 13.9623 3.2301 12.535 1.93881C11.1077 0.647526 9.23863 -0.0457634 7.31448 0.00234632C5.39034 0.050456 3.55829 0.836284 2.19729 2.19729C0.836284 3.55829 0.050456 5.39034 0.00234632 7.31448C-0.0457634 9.23863 0.647526 11.1077 1.93881 12.535C3.2301 13.9623 5.02058 14.8387 6.93992 14.9829C8.85926 15.1271 10.7606 14.5281 12.2507 13.3098L16.9409 18L18 16.9409ZM7.51398 13.506C6.32888 13.506 5.17038 13.1546 4.185 12.4962C3.19962 11.8377 2.43161 10.9019 1.97809 9.80703C1.52457 8.71213 1.40591 7.50734 1.63711 6.345C1.86831 5.18267 2.439 4.11499 3.27699 3.27699C4.11499 2.439 5.18267 1.86831 6.345 1.63711C7.50734 1.40591 8.71213 1.52457 9.80703 1.97809C10.9019 2.43161 11.8377 3.19962 12.4962 4.185C13.1546 5.17038 13.506 6.32888 13.506 7.51398C13.5042 9.10262 12.8723 10.6257 11.749 11.749C10.6257 12.8723 9.10262 13.5042 7.51398 13.506Z"
+                                fill="#808282" />
+                        </svg>
+
+                    </button>
+                </form>
+            </div>
+            <basis core="group"
+                if="'[##db.blog.RowNumber##]' = '' and '[##db.projectList.RowNumber##]' = '' and '[##db.productList.RowNumber##]' = ''">
+
+                <div class="notFound mb-16 w-90p mx-auto">
+                    <div class="para text-center">
+                        <p class="font-IRANSansWebFaNum700 text-xl mb-2 leading-9 text-StarDust950">
+                            جست و جو نتیجه‌ای نداشت!
+                        </p>
+                        <p class="font-IRANSansWebFaNum400 text-base leading-7 text-StarDust800">
+                            املای کلمه‌ی مورد نظر را بررسی کرده و مجددا برای جست و جو اقدام کنید.
+                        </p>
+                    </div>
+                </div>
+            </basis>
+
+            <basis core="group" if="'[##db.blog.RowNumber##]' <> '' or '[##db.projectList.RowNumber##]' <> '' or '[##db.productList.RowNumber##]' <> ''">
+
+                <div class="foundSearch mb-16 w-90p mx-auto mt-12">
+                    <h2 class="text-center font-IRANSansWebFaNum700 text-xl leading-9 mb-8 text-StarDust950">
+                        نتایج جست و جو
+                    </h2>
+                    <basis core="print" datamembername="db.productList">
+                        <layout>
+                            <div class="products mb-8">
+                                <h3 class="font-IRANSansWebFaNum700 mb-3 left-9 text-StarDust950 text-xl">
+                                    محصولات
+                                </h3>
+
+                                <div class="productList mb-5">
+                                    @child
+                                </div>
+                            </div>
+                        </layout>
+
+                        <face>
+                            <div class="product mb-3">
+                                <a href="/@link" title="@title">
+
+                                    <h4 class="font-IRANSansWebFaNum700 mb-1.5 text-lg leading-8 text-StarDust800">
+                                        @title
+                                    </h4>
+                                    <div class="para line-clamp-1 font-IRANSansWebFaNum400 text-base leading-7 text-StarDust800">
+                                        <p>
+                                            @type_144
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </face>
+                    </basis>
+
+                    <basis core="print" datamembername="db.projectList">
+                        <layout>
+                            <div class="projects mb-8">
+                                <h3 class="font-IRANSansWebFaNum700 mb-3 text-xl left-9 text-StarDust950">
+                                    پروژه‌ها
+                                </h3>
+        
+                                <div class="projectList mb-5">
+                                    @child
+                                </div>
+                            </div>
+                        </layout>
+                        
+                        <face>
+                            
+                            <div class="project mb-3">
+                                <a href="/@link" title="@title">
+    
+                                    <h4 class="font-IRANSansWebFaNum700 mb-1.5 text-lg leading-8 text-StarDust800">
+                                        @title
+                                    </h4>
+                                    <div class="para line-clamp-1 font-IRANSansWebFaNum400 text-base leading-7 text-StarDust800">
+                                        <p>
+                                         @type_144
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </face>
+                    </basis>
+
+                    <basis core="print" datamembername="db.blog">
+                        <layout>
+                            <div class="blogs mb-8">
+                                <h3 class="font-IRANSansWebFaNum700 text-xl mb-3 left-9 text-StarDust950">
+                                    مقاله‌ها
+                                </h3>
+        
+                                <div class="blogList mb-5">
+                                    @child
+                                </div>
+                            </div>
+                        </layout>
+                        
+                        <face>
+                            <div class="blog mb-3">
+                                <a href="/@link" title="@title">
+    
+                                    <h4 class="font-IRANSansWebFaNum700 mb-1.5 text-lg leading-8 text-StarDust800">
+                                       @title
+                                    </h4>
+                                    <div class="para line-clamp-1 font-IRANSansWebFaNum400 text-base leading-7 text-StarDust800">
+                                        <p>
+                                          @prp_7244
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                        </face>
+                    </basis>
+                </div>
+            </basis>
+
+        </div>
+
+        <basis core="call" file="footer1.inc" pageindex="[##cms.cms.pageindex##]" />
+
+    </div>
+
+    <basis core="call" file="script.inc" pageindex="[##cms.cms.pageindex##]" />
+
+</body>
+
+</html>
