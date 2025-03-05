@@ -14,7 +14,7 @@
     <member name="def-project" type="tree" request="cat" parentid="213464" />
 </basis>
 <basis core="dbsource" name="db" source="basiscore" lid="1" mid="19" catid="213464">
-    <member name="projectList" type="list" size="360x240" link="project.bc" />
+    <member name="projectList" type="list" size="206x220" link="project.bc" />
 </basis>
 <basis core="dbsource" name="db" source="basiscore" lid="1" mid="5" usedforid="9669">
     <member name="contactus" type="view" />
@@ -64,7 +64,7 @@
 
                     <div
                         class="scrollBtm scrollBtmHomePage overflow-hidden cursor-pointer absolute bottom-8 left-0 right-0 w-fit mx-auto">
-                        <p class="font-IRANSansWeb400 text-base leading-8 text-StarDust50">
+                        <p class="font-IRANSansWeb400 text-lg leading-8 text-StarDust50">
                             اسکرول کنید
                         </p>
                         <span class="line block my-1.5 w-full h-px bg-StarDust50"></span>
@@ -130,14 +130,14 @@
                     <div class="grid grid-cols-2 h-full items-center pb-8 pt-[104px] gap-x-20 w-90p mx-auto">
                         <basis core="print" datamembername="db.products">
 
-                            <face filter="catid<>213460">
+                            <face filter="RowNumber=2">
 
                                 <div
                                     class="productBox group-[&.swiper-slide-active]/section3:!opacity-100 group-[&.swiper-slide-active]/section3:!translate-y-0 duration-1000 opacity-0 odd:translate-y-100 even:-translate-y-100 group/productBox">
                                     <a href="/product-list.bc?catid=@catid">
                                         <div class="imgS mb-6">
                                             <img class="w-full duration-500 grayscale-100 group-hover/productBox:grayscale-0"
-                                                src="[##cms.cms.cdn##]/@image" alt="@title" />
+                                                src="/@image" alt="@title" />
                                         </div>
                                         <h2 class="font-IRANSansWebFaNum700 mb-1 text-lg text-StarDust200">
                                             @title
@@ -164,12 +164,49 @@
                                 </div>
                             </face>
                         </basis>
+                        <basis core="print" datamembername="db.products">
+
+                            <face filter="RowNumber=3">
+
+                                <div
+                                    class="productBox group-[&.swiper-slide-active]/section3:!opacity-100 group-[&.swiper-slide-active]/section3:!translate-y-0 duration-1000 opacity-0 odd:translate-y-100 even:-translate-y-100 group/productBox">
+                                    <a href="/product-list.bc?catid=@catid">
+                                        <h2 class="font-IRANSansWebFaNum700 mb-1 text-lg text-StarDust200">
+                                            @title
+                                        </h2>
+                                        <div class="para font-IRANSansWeb400 text-base text-StarDust400 mb-2 leading-7">
+                                            <p>
+                                                @urldescription
+                                            </p>
+                                        </div>
+                                        <div
+                                            class="more w-fit flex items-center gap-x-1.5 relative after:absolute after:bg-StarDust400 after:right-0 after:bottom-0 after:w-0 after:h-px after:transition-all after:duration-700 hover:after:w-full">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M14 6.41667H7.58333V0H6.41667V6.41667H0V7.58333H6.41667V14H7.58333V7.58333H14V6.41667Z"
+                                                    fill="#B3B3B3" />
+                                            </svg>
+
+                                            <span class="font-IRANSansWebFaNum400 text-base text-StarDust400">
+                                                @title
+                                            </span>
+                                        </div>
+                                        <div class="imgS mt-6">
+                                            <img class="w-full duration-500 grayscale-100 group-hover/productBox:grayscale-0"
+                                                src="[##cms.cms.cdn##]/@image" alt="@title" />
+                                        </div>
+                                      
+                                    </a>
+                                </div>
+                            </face>
+                        </basis>
 
                     </div>
                 </div>
 
                 <div class="swiper-slide group/section4 section4 relative !h-svh">
-                    <div class="w-90p mx-auto flex items-center gap-x-10 h-full pt-[88px]">
+                    <div class="w-90p mx-auto flex justify-between items-center gap-x-10 h-full pt-[88px]">
                         <div class="txtBox max-w-[373px]">
                             <basis core="print" datamembername="db.def-project">
 
@@ -196,17 +233,17 @@
                                 </svg>
 
                                 <span class="font-IRANSansWebFaNum400 text-base text-StarDust400 leading-7">
-                                    مشاهده‌ی پروژه
+                                    پروژه ها
                                 </span>
                             </a>
                         </div>
-                        <div class="grid grid-cols-3 w-full">
+                        <div class="grid grid-cols-3 w-auto">
 
                             <basis core="print" datamembername="db.projectList">
 
                                 <face>
                                     <div
-                                        class="projectBox group/projectBox duration-1000 px-7 border-r border-r-StarDust400 last:border-l last:border-l-StarDust400  opacity-0 [&.topBoxes]:-translate-y-100 [&.bottomBoxes]:translate-y-100 group-[&.swiper-slide-active]/section4:opacity-100 group-[&.swiper-slide-active]/section4:!translate-y-0 ">
+                                        class="projectBox max-w-[262px] group/projectBox duration-1000 px-7 border-r border-r-StarDust400 last:border-l last:border-l-StarDust400  opacity-0 [&.topBoxes]:-translate-y-100 [&.bottomBoxes]:translate-y-100 group-[&.swiper-slide-active]/section4:opacity-100 group-[&.swiper-slide-active]/section4:!translate-y-0 ">
                                         <a href="/@link" title="@title">
                                             <h4 class="font-IRANSansWebFaNum700 text-StarDust200 mb-16">
                                                 @title
@@ -227,7 +264,7 @@
 
                                             <div class="imgS relative">
                                                 <img class="duration-500 w-full grayscale-100 group-hover/projectBox:grayscale-0"
-                                                    src="[##cms.cms.cdn##]/@image" alt="@title" />
+                                                    src="[##cms.cms.cdn##]/@00206X00220prp" alt="@title" />
                                                 <span
                                                     class="font-Helvetica400 left-0 right-0 text-center leading-[105.79px] text-[92px] text-StarDust50 absolute -bottom-5">
                                                     0@RowNumber
@@ -245,12 +282,17 @@
                 </div>
 
                 <div class="swiper-slide section5 relative !h-svh">
-                    <div class="grid grid-cols-4 h-full gap-x-10 w-90p mx-auto">
+                    <div class="grid grid-cols-4 h-full gap-x-10 w-90p mx-auto relative">
+                       
                         <div class="imgS self-center -mr-4">
                             <img src="[##cms.cms.cdn##]/images/logo-pattern.png" alt="pattern home" />
                         </div>
 
                         <div class="phones self-center">
+                            <h2 class="font-IRANSansWebFaNum700 text-2xl leading-10 text-StarDust50 -translate-y-[75px]">
+                            
+                                تماس با ما
+                            </h2>
                             <basis core="print" datamembername="db.contactus">
 
                                 <face filter="TypeID=240">
@@ -399,6 +441,15 @@
                                 </div>
                             </div>
                         </div>
+                        <basis core="print" datamembername="db.social">
+                       
+                            <face filter="TypeID=246">
+                                <div class="mapSectoin flex items-center">
+                                    @largetext
+                                </div>
+                                
+                            </face>
+                        </basis>
                     </div>
                     <a href="https://www.namasite.ir"
                         class="btm w-full bg-StarDust800 absolute bottom-0 left-0 right-0 flex justify-center items-center gap-x-2.5 py-1.5">
@@ -422,6 +473,10 @@
                     </svg>
                 </div>
 
+                <h3 class="mb-6 mt-8 font-IRANSansWebFaNum700 text-xl leading-9 text-StarDust950">
+                    فرم‌ تماس با ما
+                </h3>
+        
                 <div class="formContainer relative">
                     <div class="loaderContainer absolute flex items-center justify-center inset-0 bg-white/[0.6] z-1">
                         <div class="loader"></div>

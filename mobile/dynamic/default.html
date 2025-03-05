@@ -1,0 +1,226 @@
+<basis core="dbsource" source="media" name="db" lid="1" catid="2326">
+    <member type="list" name="def-video" perpage="10" pageno="1" />
+</basis>
+<basis core="dbsource" name="db" source="basiscore" lid="1" mid="1" usedforid="2374142">
+    <member name="def-about" type="view" />
+</basis>
+<basis core="dbsource" name="def" source="media" lid="1" sourcemid="1" usedforid="2374142">
+    <member name="aboutGallery" type="list" format="4" />
+</basis>
+<basis core="dbsource" source="basiscore" mid="20" name="db" lid="1">
+    <member name="products" type="tree" request="cat" parentid="213460" />
+</basis>
+<basis core="dbsource" source="basiscore" mid="19" name="db" lid="1">
+    <member name="def-project" type="tree" request="cat" parentid="213464" />
+</basis>
+<basis core="dbsource" name="db" source="basiscore" lid="1" mid="19" catid="213464">
+    <member order="id desc" name="projectList" type="list" size="320x240" link="project.bc" />
+</basis>
+<basis core="dbsource" name="db" source="basiscore" lid="1" mid="5" usedforid="9669">
+    <member name="contactus" type="view" />
+</basis>
+<basis core="dbsource" source="media" name="db" lid="1" catid="2330" >
+    <member type="list" name="loader" perpage="10" pageno="1" />
+</basis>
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آرکاجام</title>
+    <meta name="description" content="صفحه اصلی آرکاجام">
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
+</head>
+
+<body>
+    <main class="homePage bg-StarDust950" dir="rtl">
+        <basis core="call" file="header2.inc"  pageindex="[##cms.cms.pageindex##]"/>
+
+        <div class="loaderHome flex items-center justify-center fixed z-[10000999999999] inset-0 bg-StarDust800 duration-1000 w-svw h-svh [&.endLoader]:-translate-y-[100%]">
+            <basis core="print" datamembername="db.loader">
+             
+                <face>
+                    <video src="/@largeIMG" autoplay muted class="max-w-[187px]"></video>
+                    
+                </face>
+            </basis>
+           </div>
+        <section class="section1 h-svh mb-12 relative z-1">
+            <div
+                class="videoContainer h-full relative after:w-full after:h-full after:bg-[linear-gradient(180deg,rgba(43,44,44,0.75)_0%,rgba(43,44,44,0)_50.5%,rgba(43,44,44,0.75)_100%)] after:absolute after:inset-0">
+                <basis core="print" datamembername="db.def-video">
+
+                    <face>
+
+                        <video class="w-full h-full object-cover" src="/@largeIMG" muted autoplay loop></video>
+                    </face>
+                </basis>
+            </div>
+            <div
+                class="scrollBtm scrollBtmHomePage overflow-hidden cursor-pointer absolute bottom-8 left-0 right-0 w-fit mx-auto">
+                <p class="font-IRANSansWeb400 text-lg leading-8 text-StarDust50">
+                    اسکرول کنید
+                </p>
+                <span class="line block my-1.5 w-full h-px bg-StarDust50"></span>
+            </div>
+        </section>
+        <div class="fixed left-0 top-0 z-0 h-svh flex items-center justify-end">
+            <img src="[##cms.cms.cdn##]/images/logo-pattern.png" alt="pattern">
+        </div>
+        <section class="section2 relative z-1 w-90p mx-auto mb-16">
+            <basis core="print" datamembername="db.def-about">
+
+                <face filter="TypeID=150">
+
+                    <h1 class="font-IRANSansWebFaNum700 text-xl leading-9 mb-3 text-StarDust400">
+                        @Answer
+                    </h1>
+                </face>
+            </basis>
+            <basis core="print" datamembername="db.def-about">
+
+                <face filter="TypeID=129">
+                    <div class="para mb-16 font-IRANSansWebFaNum400 leading-7 text-justify text-StarDust400">
+                        @Answer
+                    </div>
+
+                </face>
+            </basis>
+            <a href="/about-us" class="font-IRANSansWebFaNum400 w-fit text-lg pb-1 block leading-8 text-StarDust400 border-b border-b-StarDust400"
+                title="بیشتر درباره‌ی ما">
+                بیشتر درباره‌ی ما
+            </a>
+        </section>
+        <section class="section3 mb-8 relative z-1">
+            <basis core="print" datamembername="def.aboutGallery">
+                <layout>
+                    <div class="imgS relative after:w-full after:h-full after:bg-[linear-gradient(180deg,rgba(43,44,44,0.75)_0%,rgba(43,44,44,0)_50.5%,rgba(43,44,44,0.75)_100%)] after:absolute after:inset-0"">
+                      
+                        @child
+                    </div>
+                </layout>
+                
+                <face filter=" ord=50">
+                        <img class=" w-full" src="/@largeIMG" alt="@name">
+
+                        </face>
+            </basis>
+        </section>
+
+        <section class="section4 relative z-1 w-90p mb-16 mx-auto">
+            <h2 class="mb-8 font-IRANSansWebFaNum700 text-2xl leading-10 text-StarDust400">
+                محصولات
+            </h2>
+            <basis core="print" datamembername="db.products">
+
+                <face filter="catid<>213460">
+
+                    <div class="proBox mb-8">
+                        <a href="/product-list.bc?catid=@catid" title="@title">
+                            <div class="imgS mb-4">
+                                <img class="w-full" src="[##cms.cms.cdn##]/images/@catid.jpg" alt="@title">
+                            </div>
+                            <h5 class="font-IRANSansWebFaNum700 text-lg leading-8 text-StarDust400">
+                                @title
+                            </h5>
+                            <div class="para font-IRANSansWebFaNum400 text-base mb-2 leading-7 text-StarDust400">
+                                <p>
+                                    @urldescription
+                                </p>
+                            </div>
+                            <div
+                                class="more w-fit flex items-center gap-x-1.5 relative after:absolute after:bg-StarDust400 after:right-0 after:bottom-0 after:w-0 after:h-px after:transition-all after:duration-700 hover:after:w-full">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14 6.41667H7.58333V0H6.41667V6.41667H0V7.58333H6.41667V14H7.58333V7.58333H14V6.41667Z"
+                                        fill="#B3B3B3" />
+                                </svg>
+
+
+                                <span class="font-IRANSansWebFaNum400 text-base text-StarDust400">
+                                    @title
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </face>
+            </basis>
+        </section>
+        <section class="section5 relative z-1 w-90p mx-auto mb-8">
+            <basis core="print" datamembername="db.def-project">
+    
+                <face>
+                    <h3 class="font-IRANSansWebFaNum700 text-lg leading-9 text-StarDust400 mb-3">
+                        @urltitle
+                    </h3>
+                    <div class="para mb-8 font-IRANSansWebFaNum400 text-base leading-7 text-StarDust400 text-justify">
+                        <p>
+                           @urldescription
+                         </p>
+                    </div>
+                    
+                </face>
+            </basis>
+
+            <div class="projects">
+                <basis core="print" datamembername="db.projectList">
+                  
+                    <face>
+                        
+                        <div class="projectBox mb-8">
+                            <a href="/@link" title="@title">
+                                <h4 class="mb-2 font-IRANSansWebFaNum700 text-lg leading-8 text-StarDust400">
+                                    @title
+                                </h4>
+        
+                                <div href="/project-list.bc"
+                                    class="more mb-4 w-fit flex items-center gap-x-1.5 relative after:absolute after:bg-StarDust400 after:right-0 after:bottom-0 after:w-0 after:h-px after:transition-all after:duration-700 hover:after:w-full">
+                                    <svg width="14" height="7" viewBox="0 0 14 7" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M2.7818 -6.10352e-05L0.495716 2.27069C0.177562 2.60181 6.10151e-05 3.04237 6.10352e-05 3.50008C6.10552e-05 3.9578 0.177562 4.39764 0.495716 4.72875L2.7818 7.00008L3.60663 6.18078L1.48797 4.08341L14.0001 4.08342L13.9999 2.91675L1.48797 2.91675L3.60663 0.819242L2.7818 -6.10352e-05Z"
+                                            fill="#BCBCBC" />
+                                    </svg>
+        
+                                    <span class="font-IRANSansWebFaNum400 text-base text-StarDust400 leading-7">
+                                        مشاهده‌ی پروژه
+                                    </span>
+                                </div>
+                                <div class="imgS relative">
+                                    <img class="duration-500 w-full grayscale-100 group-hover/projectBox:grayscale-0"
+                                        src="[##cms.cms.cdn##]/@image" alt="@title" />
+                                    <span
+                                        class="font-Helvetica400 number left-0 right-0 text-center leading-[105.79px] text-[92px] text-StarDust50 absolute bottom-2">
+                                        0@RowNumber
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </face>
+                </basis>
+
+                <a href="/project-list.bc"
+                    class="block border-b w-fit mx-auto border-b-StarDust400 font-IRANSansWebFaNum400 text-lg leading-8 text-StarDust400"
+                    title="دسته‌بندی پروژه‌ها">
+                    دسته‌بندی پروژه‌ها
+
+                </a>
+            </div>
+        </section>
+
+
+
+
+
+        <basis core="call" file="footer2.inc" pageindex="[##cms.cms.pageindex##]" />
+
+    </main>
+
+
+    <basis core="call" file="script.inc" pageindex="[##cms.cms.pageindex##]" />
+    <script src="[##cms.cms.cdn##]/js/home-mobile.js"></script>
+</body>
+
+</html>

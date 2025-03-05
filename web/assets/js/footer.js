@@ -121,11 +121,13 @@ async function OnProcessedEditObject1(args) {
 }
 
 function renderFn1(params) {
+
+  
   document.querySelector(".qclass8").style.display = "block";
   captchaInput = document.querySelector(".captchaContainerclass .codeinputm");
   captchaContainerclass = document.querySelector(".captchaContainerclass");
   loaderContainer.style.display = "none";
-
+  console.log(loaderContainer,'loaderContainer');
   let questions = document.querySelectorAll(".homeForm1 div[data-bc-question]");
   questions.forEach((element) => {
     element.classList.add("afterStar");
@@ -145,7 +147,7 @@ function renderFn1(params) {
         qTxtArea.setAttribute("aria-label", title);
       }
     }
-    console.log("q", qInput);
+    // console.log("q", qInput);
   });
 }
 

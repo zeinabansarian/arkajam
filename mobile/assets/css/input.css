@@ -253,3 +253,20 @@
 footer .mapSection iframe {
   width: 100%;
 }
+
+.imgSliderPagination .swiper-pagination-bullet{
+opacity: 1;
+width: 8px;
+height: 8px;
+background-color: var(--color-StarDust600);
+transition: 0.5s ease;
+}
+.imgSliderPagination .swiper-pagination-bullet-active{
+width: 10px;
+height: 10px;
+background-color: var(--color-Lochmara600);
+}
+
+.homePage .section1 .scrollBtm .line{
+  animation: animTraitlinear infinite 1.6s;
+}

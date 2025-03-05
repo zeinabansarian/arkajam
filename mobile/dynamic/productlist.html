@@ -1,7 +1,7 @@
 <basis core="dbsource" source="basiscore" mid="20" name="db" lid="1">
     <member name="productFilter" type="tree" request="cat" parentid="213460"/>
  </basis>
-<basis core="dbsource" name="db" source="basiscore" lid="1" mid="20" catid="213460"> 
+<basis core="dbsource" name="db" source="basiscore" lid="1" mid="20" catid="[##cms.query.catid##]"> 
    <member name="productList" type="list" size="320x240" /> 
 </basis>	
 
@@ -17,7 +17,7 @@
 <body>
    <main class="productList bg-StarDust50" dir="rtl">
        <basis core="call" file="header1.inc" pageindex="[##cms.cms.pageindex##]"/>
-
+<span class="catid" style="display: none;">[##cms.query.catid##]</span>
        <div class="breadCrumb pt-[88px] w-90p mx-auto mb-4">
            <a href="/" class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
                خانه
@@ -62,7 +62,7 @@
        </div>
 
        <section class="section2 min-h-[80vh] w-90p mx-auto relative">
-           <div class="loaderContainer hidden h-[60vh] w-full absolute items-center justify-center inset-0 bg-white/[0.6] z-1">
+           <div class="loaderContainer1 hidden h-[60vh] w-full absolute items-center justify-center inset-0 bg-white/[0.6] z-1">
                <div class="loader"></div>
            </div>
 

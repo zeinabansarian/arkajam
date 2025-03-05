@@ -18,3 +18,5 @@ const projectSlider = new Swiper('.projectSlider', {
     spaceBetween: 20,
 
 });
+
+

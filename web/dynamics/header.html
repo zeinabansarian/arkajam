@@ -1,6 +1,8 @@
 <basis core="dbsource" name="db" source="basiscore" lid="1" mid="5" usedforid="9669"> <member name="phone" type="view" postsql="select * from [db.phone] where typeid=240"/> </basis>
 <basis core="dbsource" name="db" source="basiscore" lid="1" mid="5" usedforid="9669"> <member name="social" type="view"/> </basis>	
-
+<basis core="dbsource" source="media" name="db" lid="1" catid="2326">
+    <member type="list" name="def-video" perpage="10" pageno="1" />
+</basis>
     <header class="group/header z-[100000] w-full fixed top-0 h-[88px] flex items-center justify-center" dir="rtl">
         <div class="w-90p mx-auto grid grid-cols-3">
 
@@ -83,11 +85,17 @@
     </header>
  
     <div class="megaHeader z-[10000] bg-StarDust950 h-svh w-svw inset-0 fixed ease-[cubic-bezier(0.5,0,0.75,0)] duration-1000 -translate-y-full [&.activeMegaMenu]:translate-y-0">
-        <!-- <div class="videoContainer fixed inset-0 h-full w-full ">
-            <video autoplay muted loop class="object-cover h-full w-full duration-1000 opacity-0">
-                <source src="https://terrazabalear.com/wp-content/uploads/2023/03/terraza_balear___be_inspired-1080p-2.mp4">
-            </video>
-        </div> -->
+        <basis core="print" datamembername="db.def-video">
+           
+            <face filter="RowNumber=1">
+                <div class="videoContainer fixed inset-0 h-full w-full after:w-full after:h-full after:bg-[linear-gradient(180deg,rgba(43,44,44,0.75)_0%,rgba(43,44,44,0)_50.5%,rgba(43,44,44,0.75)_100%)] after:absolute after:inset-0">
+                    <video autoplay muted loop class="object-cover h-full w-full duration-1000">
+                        <source src="[##cms.cms.cdn##]/@largeIMG">
+                    </video>
+                </div>
+                
+            </face>
+        </basis>
         <div class="menuItem flex flex-col duration-1000 justify-center items-center h-svh w-[43.75%] [&.activeListMenu]:bg-StarDust50/[0.35] [&.activeListMenu]:backdrop-blur-md z-1 relative mx-auto">
           <div class="innerMenuItem">
               <ul class="mb-16 translate-y-[40px] w-full max-w-[400px]">

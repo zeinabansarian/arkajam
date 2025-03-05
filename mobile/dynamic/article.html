@@ -21,10 +21,10 @@
     <member name="relatedBlog" type="list" blgid="222" link="article.bc" size="373x240" propertyid="7244,7249"
         postsql=" select *, SUBSTR(prp_7244, 1,230-CHARINDEX(' ', REVERSE(SUBSTR(prp_7244, 1, 230)))) || '...' as substr from [db.relatedBlog]" />
     <basis core="dbsource" name="db" source="basiscore" lid="1" mid="1" usedforid="[##cms.query.id##]">
-        <member name="relatedProduct" type="list" blgid="221" link="product.bc" size="373x240" />
+        <member name="relatedProduct" type="list" blgid="221" link="product.bc" size="320x240" />
     </basis>
     <basis core="dbsource" name="db" source="basiscore" lid="1" mid="1" usedforid="[##cms.query.id##]">
-        <member name="relatedProject" type="list" link="project.bc" blgid="1611" size="360x240" />
+        <member name="relatedProject" type="list" link="project.bc" blgid="1611" size="280x240" />
     </basis>
     <!DOCTYPE html>
     <html lang="fa">
@@ -40,28 +40,28 @@
         </basis>
 
         <link rel="stylesheet" href="[##cms.cms.cdn##]/css/swiper-bundle.min.css" />
-        <basis core="call" file="style.inc" />
+        <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
     </head>
 
     <body>
         <main class="articlePage bg-StarDust50" dir="rtl">
-            <basis core="call" file="header1.inc" />
+            <basis core="call" file="header1.inc" pageindex="[##cms.cms.pageindex##]" />
 
-            <section class="section1">
+            <section class="section1 mb-8">
                 <div class="breadCrumb pt-[88px] w-90p mx-auto">
-                    <a href="/" class="inline font-IRANSansWebFaNum400 text-base leading-[28px] text-StarDust600">
+                    <a href="/" class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
                         خانه
                     </a>
-                    <span class="inline font-IRANSansWebFaNum400 text-base leading-[28px] text-StarDust600">
+                    <span class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
                         .
                     </span>
                     <basis core="print" datamembername="db.nav">
                         <face filter="Parentcatid <> 212788">
                             <a href="/@link"
-                                class="inline font-IRANSansWebFaNum400 text-base leading-[28px] text-StarDust600">
+                                class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
                                 @title
                             </a>
-                            <span class="inline font-IRANSansWebFaNum400 text-base leading-[28px] text-StarDust600">
+                            <span class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
                                 .
                             </span>
                         </face>
@@ -69,13 +69,13 @@
 
                     <basis core="print" datamembername="db.article">
                         <face filter="TypeID=150">
-                            <p class="inline font-IRANSansWebFaNum400 text-base leading-[28px] text-StarDust600">
+                            <p class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
                                 @Answer
                             </p>
                         </face>
                     </basis>
                 </div>
-                <div class="titleContainer mb-16 pt-11">
+                <div class="titleContainer pt-4">
                     <basis core="print" datamembername="db.article">
                         <face filter="TypeID=150">
                             <h1
@@ -99,8 +99,8 @@
 
             <basis core="print" datamembername="db.articleGallery">
                 <layout>
-                    <section class="section2 w-90p mx-auto mb-16">
-                        <div class="imgS px-20">@child</div>
+                    <section class="section2 w-90p mx-auto mb-8">
+                        <div class="imgS">@child</div>
                     </section>
                 </layout>
 
@@ -122,7 +122,7 @@
                 <basis core="print" datamembername="db.article">
                     <layout> @child </layout>
                     <face filter="prpID=7244">
-                        <div class="para text-justify font-IRANSansWebFaNum400 text-base text-StarDust800 mb-9">
+                        <div class="para text-justify font-IRANSansWebFaNum400 text-base text-StarDust800 mb-8">
                             @largetext
                         </div>
                     </face>
@@ -135,10 +135,10 @@
                 </layout>
 
                 <face filter="TypeID=250">
-                    <h2 class="font-IRANSansWebFaNum700 mb-3 text-xl text-StarDust950">
+                    <h2 class="font-IRANSansWebFaNum700 text-xl mb-3 text-StarDust950">
                         @text
                     </h2>
-                    <div class="para text-justify font-IRANSansWebFaNum400 text-base text-StarDust800 mb-2">
+                    <div class="para text-justify font-IRANSansWebFaNum400 text-base text-StarDust800 mb-3">
                         @largetext
                     </div>
                 </face>
@@ -147,31 +147,26 @@
             <basis core="print" datamembername="db.articleGallery">
                 <layout>
                     <section class="section4 w-90p mx-auto mb-16">
-                        <div class="grid grid-cols-2 gap-8">@child</div>
+                        <div class="">@child</div>
                     </section>
                 </layout>
 
                 <face filter="ord=1000">
-                    <img src="[##cms.cms.cdn##]/@largeIMG" alt="@name" />
+                    <img class="w-full mb-8" src="[##cms.cms.cdn##]/@largeIMG" alt="@name" />
                 </face>
             </basis>
             <section class="section5 w-90p mx-auto mb-16">
-                <div class="grid gap-x-9 grid-cols-2">
-                    <h3 class="font-IRANSansWebFaNum700 text-xl mb-10 text-StarDust950">
+                <div class="">
+                    <h3 class="font-IRANSansWebFaNum700 leading-8 text-xl mb-6 text-StarDust950">
                         ثبت نظر
                     </h3>
-                    <h3 class="font-IRANSansWebFaNum700 text-xl mb-7 text-StarDust950">
-                        نظرات ثبت شده
-                    </h3>
-                </div>
-                <div class="grid gap-x-9 grid-cols-2">
                     <div class="commentForm">
                         <basis core="dbsource" source="userbehavior" name="db" title="{##db.senduserName.value##}"
                             run="atclient" triggers="db.sendcomment" if="{##db.sendcomment##}" parentid="0"
                             usedforid="[##cms.query.id##]" userid="100005" mid="1" comment="{##db.sendcomment.value##}">
                             <member request="comment" type="scalar" name="comment" preview="true" onRendered="renderCommentFn" />
                         </basis>
-
+    
                         <form action="" class="commentP">
                             <div class="userInfo mb-4">
                                 <div class="nameInput relative">
@@ -200,7 +195,7 @@
                             <div class="messageSend font-IRANSansWebFaNum400 text-StarDust600 text-base">
                                 <p></p>
                             </div>
-                            <div class="btnsContainer gap-x-2.5 flex justify-between items-center mt-6">
+                            <div class="btnsContainer  mt-6">
                                 <basis core="dbsource" source="trust_login" name="captcha1" triggers="cms.reload1"
                                     run="atclient">
                                     <member name="code1" type="scalar" request="captcha"></member>
@@ -214,9 +209,9 @@
                                     alt="captcha" title="captcha" />
                                 <input type="hidden" name="captchaid" value="@captcha@" />
                             </span>
-
+    
                         <img src="[##cms.cms.cdn##]/images/cached.png" class="refressh refressh1 cursor-pointer" run="atclient" bc-triggers="click" bc-name="cms.reload1" />
-
+    
                             <input type="text" class="codeinputm w-full border-b border-b-StarDust400 py-1.5 font-IRANSansWebFaNum400 text-base text-StarDust600 placeholder:font-IRANSansWebFaNum400 placeholder:text-base placeholder:text-StarDust600 " placeholder="عبارت امنیتی را وارد کنید"
                             name="captcha" />
                         </div>
@@ -230,7 +225,7 @@
                                             d="M2.78174 0.5L0.495655 2.77076C0.177501 3.10187 -2.00074e-08 3.54243 0 4.00015C2.00074e-08 4.45786 0.177501 4.8977 0.495655 5.22881L2.78174 7.50015L3.60657 6.68084L1.48791 4.58347L14 4.58348L13.9998 3.41681L1.48791 3.41681L3.60657 1.3193L2.78174 0.5Z"
                                             fill="#2B2C2C" />
                                     </svg>
-
+    
                                     <span class="font-IRANSansWebFaNum400 text-base text-StarDust950 whitespace-nowrap">
                                         ارسال فرم
                                     </span>
@@ -238,8 +233,13 @@
                             </div>
                         </form>
                     </div>
-
-                    <div class="commentList flex items-center border border-StarDust400">
+                 
+                </div>
+                <div class="mt-10">
+                    <h3 class="font-IRANSansWebFaNum700 text-xl mb-6 text-StarDust950">
+                        نظرات ثبت شده
+                    </h3>
+                    <div class="commentList flex items-center">
                         <!-- Slider main container -->
                         <div class="swiper commentListSlider w-full">
                             <!-- Additional required wrapper -->
@@ -249,15 +249,15 @@
                                      
                                      <else-layout>
                                          
-                                         <div class="swiper-slide px-14 text-center font-IRANSansWebFaNum400 text-base text-StarDust950">
+                                         <div class="swiper-slide border border-StarDust400 !flex flex-col justify-center min-h-[353px] pr-3 pl-5 text-center font-IRANSansWebFaNum400 text-base text-StarDust950">
                                             هنوز کامنتی ثبت نشده است.
                                             <br>
                                             شما اولین نفر باشید
                                          </div>
                                      </else-layout>
                                      <face>
-                                         <div class="swiper-slide px-14">
-                                             <span class="font-IRANSansWebFaNum400 mb-8 text-base block">
+                                         <div class="swiper-slide border border-StarDust400 !flex flex-col justify-center min-h-[353px] pr-3 pl-5">
+                                             <span class="font-IRANSansWebFaNum400 mb-8 leading-7 text-base block">
                                               @username
                                              </span>
          
@@ -272,24 +272,7 @@
                                  </basis>
                             </div>
 
-                            <div class="btn flex translate-y-[45px] items-center justify-center gap-x-5">
-                                <div class="nextComment cursor-pointer">
-                                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M2.12143 13.414L7.41443 8.121C7.78937 7.74594 8 7.23733 8 6.707C8 6.17667 7.78937 5.66806 7.41443 5.293L2.12143 0L0.707427 1.414L5.99643 6.707L0.703427 12L2.12143 13.414Z"
-                                            fill="#808282" />
-                                    </svg>
-                                </div>
-                                <div class="prevComment cursor-pointer">
-                                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M5.87857 13.414L0.585573 8.121C0.210631 7.74594 0 7.23733 0 6.707C0 6.17667 0.210631 5.66806 0.585573 5.293L5.87857 0L7.29257 1.414L2.00357 6.707L7.29657 12L5.87857 13.414Z"
-                                            fill="#808282" />
-                                    </svg>
-                                </div>
-                            </div>
+                          
                         </div>
                     </div>
                 </div>
@@ -298,131 +281,152 @@
             <basis core="print" datamembername="db.relatedBlog">
                 <layout>
                     <section class="section6 w-90p mx-auto mb-16">
-                        <h4 class="font-IRANSansWebFaNum700 text-xl text-StarDust950 mb-8">
+                        <h4 class="font-IRANSansWebFaNum700 text-xl leading-9 text-StarDust950 mb-8">
                             مقالات مرتبط
                         </h4>
 
-                        <div class="grid grid-cols-3 gap-x-10">@child</div>
+                        <div class="relatedBlog swiper">
+                            <div class="swiper-wrapper">
+
+                                @child
+                            </div>
+                        
+                        </div>
                     </section>
                 </layout>
 
                 <face>
-                    <div class="projectBox p-5">
-                        <a href="/@link" class="group/proj" title="@title">
-                            <div class="imgS mb-2">
-                                <img loading="lazy"
-                                    class="w-full grayscale-100 duration-1000 group-hover/proj:grayscale-0"
-                                    src="[##cms.cms.cdn##]/@00373X00240prp" alt="@title" />
-                            </div>
-                            <span class="font-IRANSansWebFaNum400 text-xs text-StarDust800 mt-2 block mb-1">
-                                تاریخ: @prp_7249
-                            </span>
-                            <h2 class="font-IRANSansWebFaNum700 text-lg leading-[32px] text-StarDust800 mb-">
-                                @title
-                            </h2>
-                            <div
-                                class="para font-IRANSansWebFaNum400 text-base leading-[28px] text-justify text-StarDust800">
-                                <p>@substr</p>
-                            </div>
-                            <div
-                                class="more w-fit flex items-center gap-x-1.5 relative after:absolute after:bg-StarDust800 after:right-0 after:bottom-0 after:w-0 after:h-px after:transition-all after:duration-700 group-hover/proj:after:w-full">
-                                <svg width="15" height="8" viewBox="0 0 15 8" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M3.28174 0.499878L0.995655 2.77063C0.677501 3.10175 0.5 3.54231 0.5 4.00002C0.5 4.45774 0.677501 4.89758 0.995655 5.22869L3.28174 7.50002L4.10657 6.68072L1.98791 4.58335L14.5 4.58336L14.4998 3.41669L1.98791 3.41669L4.10657 1.31918L3.28174 0.499878Z"
-                                        fill="#58585A" />
-                                </svg>
-                                <span class="font-IRANSansWebFaNum400 text-base text-StarDust800">
-                                    ادامه‌ی مطلب
+                    <div class="swiper-slide">
+                        <div class="projectBox">
+                            <a href="/@link" class="group/proj" title="@title">
+                                <div class="imgS mb-2">
+                                    <img loading="lazy"
+                                        class="w-full grayscale-100 duration-1000 group-hover/proj:grayscale-0"
+                                        src="[##cms.cms.cdn##]/@00320X00240prp" alt="@title">
+                                </div>
+                                <span class="font-IRANSansWebFaNum400 text-xs text-StarDust800 mt-2 block mb-1">
+                                    تاریخ: @prp_7249
                                 </span>
-                            </div>
-                        </a>
+                                <h2 class="font-IRANSansWebFaNum700 text-lg leading-8 text-StarDust800 mb-1  ">
+                                    @title
+                                </h2>
+                                <div
+                                    class="para font-IRANSansWebFaNum400 text-base leading-[28px] text-justify text-StarDust800">
+                                    <p>
+                                        @substr
+                                    </p>
+                                </div>
+                                <div
+                                    class="more w-fit flex items-center gap-x-1.5   relative after:absolute after:bg-StarDust800 after:right-0 after:bottom-0 after:w-0 after:h-px after:transition-all after:duration-700 group-hover/proj:after:w-full">
+                                    <svg width="15" height="8" viewBox="0 0 15 8" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M3.28174 0.499878L0.995655 2.77063C0.677501 3.10175 0.5 3.54231 0.5 4.00002C0.5 4.45774 0.677501 4.89758 0.995655 5.22869L3.28174 7.50002L4.10657 6.68072L1.98791 4.58335L14.5 4.58336L14.4998 3.41669L1.98791 3.41669L4.10657 1.31918L3.28174 0.499878Z"
+                                            fill="#58585A" />
+                                    </svg>
+                                    <span class="font-IRANSansWebFaNum400 text-base text-StarDust800">
+                                        ادامه‌ی مطلب
+                                    </span>
+
+                                </div>
+                            </a>
+                        </div>
+
                     </div>
+                 
                 </face>
             </basis>
 
             <basis core="print" datamembername="db.relatedProduct">
                 <layout>
                     <section class="section65 mb-16 w-90p mx-auto">
-                        <h4 class="font-IRANSansWebFaNum700 text-xl text-StarDust950 mb-8">
+                        <h4 class="font-IRANSansWebFaNum700 leading-[35px] text-xl text-StarDust950 mb-8">
                             محصولات مرتبط
                         </h4>
-                        <div class="grid grid-cols-3 gap-x-10">@child</div>
+                        <div class="swiper relatedProductSlider">
+                            <div class="swiper-wrapper">
+
+                                @child
+                            </div>
+                        
+                        </div>
                     </section>
                 </layout>
 
                 <face>
-                    <div class="projectBox">
-                        <a href="/@link" class="group/proj" title="@title">
-                            <div class="imgS mb-2">
-                                <img loading="lazy"
-                                    class="w-full grayscale-100 duration-1000 group-hover/proj:grayscale-0"
-                                    src="[##cms.cms.cdn##]/@00373X00240prp" alt="@title" />
-                            </div>
-                            <h2 class="font-IRANSansWebFaNum700 text-lg leading-[32px] text-StarDust800 mb-2">
-                                @title
-                            </h2>
-
-                            <div
-                                class="more w-fit flex items-center gap-x-1.5 relative after:absolute after:bg-StarDust800 after:right-0 after:bottom-0 after:w-0 after:h-px after:transition-all after:duration-700 group-hover/proj:after:w-full">
-                                <svg width="15" height="8" viewBox="0 0 15 8" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M3.28174 0.499878L0.995655 2.77063C0.677501 3.10175 0.5 3.54231 0.5 4.00002C0.5 4.45774 0.677501 4.89758 0.995655 5.22869L3.28174 7.50002L4.10657 6.68072L1.98791 4.58335L14.5 4.58336L14.4998 3.41669L1.98791 3.41669L4.10657 1.31918L3.28174 0.499878Z"
-                                        fill="#58585A" />
-                                </svg>
-                                <span class="font-IRANSansWebFaNum400 text-base text-StarDust800">
-                                    مشاهده‌ی پروژه
-                                </span>
-                            </div>
-                        </a>
+                    <div class="swiper-slide">
+                        <div class="projectBox">
+                            <a href="/@link" class="group/proj" title="@title">
+                                <div class="imgS mb-2">
+                                    <img loading="lazy" class="w-full grayscale-100 duration-1000 group-hover/proj:grayscale-0" src="[##cms.cms.cdn##]/@00320X00240prp" alt="@title" >
+                                </div>
+                                <h2 class="font-IRANSansWebFaNum700 text-lg leading-[32px] text-StarDust800 mb-2  ">
+                                    @title
+                                </h2>
+        
+                                <div class="more w-fit flex items-center gap-x-1.5   relative after:absolute after:bg-StarDust800 after:right-0 after:bottom-0 after:w-0 after:h-px after:transition-all after:duration-700 group-hover/proj:after:w-full">
+                                    <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.28174 0.499878L0.995655 2.77063C0.677501 3.10175 0.5 3.54231 0.5 4.00002C0.5 4.45774 0.677501 4.89758 0.995655 5.22869L3.28174 7.50002L4.10657 6.68072L1.98791 4.58335L14.5 4.58336L14.4998 3.41669L1.98791 3.41669L4.10657 1.31918L3.28174 0.499878Z" fill="#58585A"/>
+                                        </svg>
+                                    <span class="font-IRANSansWebFaNum400 text-base text-StarDust800">
+                                        مشاهده‌ی پروژه
+                                    </span>
+        
+                                </div>
+                            </a>
+                        </div>
                     </div>
+                   
                 </face>
             </basis>
 
             <basis core="print" datamembername="db.relatedProject">
                 <layout>
                     <section class="section7 mb-16 w-90p mx-auto">
-                        <h4 class="font-IRANSansWebFaNum700 text-xl text-StarDust950 mb-8">
+                        <h4 class="font-IRANSansWebFaNum700 text-xl leading-[35px] text-StarDust950 mb-8">
                             پروژه‌های مرتبط
                         </h4>
-                        <div class="grid grid-cols-3">@child</div>
+                        <div class="swiper relatedProjectSlider">
+                            <div class="swiper-wrapper">
+
+                                @child
+                            </div>
+                        </div>
                     </section>
                 </layout>
                 <face>
-                    <div class="projectBox px-5">
-                        <a href="/@link" class="group/proj" title="@title">
-                            <div class="imgS mb-2">
-                                <img loading="lazy"
-                                    class="w-full grayscale-100 duration-1000 group-hover/proj:grayscale-0"
-                                    src="[##cms.cms.cdn##]/@00360X00240prp" alt="@title" />
-                            </div>
-                            <h2 class="font-IRANSansWebFaNum700 text-lg leading-[32px] text-StarDust800 mb-2">
-                                @title
-                            </h2>
-
-                            <div
-                                class="more w-fit flex items-center gap-x-1.5 relative after:absolute after:bg-StarDust800 after:right-0 after:bottom-0 after:w-0 after:h-px after:transition-all after:duration-700 group-hover/proj:after:w-full">
-                                <svg width="15" height="8" viewBox="0 0 15 8" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M3.28174 0.499878L0.995655 2.77063C0.677501 3.10175 0.5 3.54231 0.5 4.00002C0.5 4.45774 0.677501 4.89758 0.995655 5.22869L3.28174 7.50002L4.10657 6.68072L1.98791 4.58335L14.5 4.58336L14.4998 3.41669L1.98791 3.41669L4.10657 1.31918L3.28174 0.499878Z"
-                                        fill="#58585A" />
-                                </svg>
-                                <span class="font-IRANSansWebFaNum400 text-base text-StarDust800">
-                                    مشاهده‌ی پروژه
-                                </span>
-                            </div>
-                        </a>
+                    <div class="swiper-slide px-5  border-r last:border-l border-StarDust400">
+                        <div class="projectBox mb-8">
+                            <a href="/@link" class="group/proj" title="@title">
+                                <div class="imgS mb-2">
+                                    <img loading="lazy" class="w-full grayscale-100 duration-1000 group-hover/proj:grayscale-0" src="[##cms.cms.cdn##]/@00280X00240prp" alt="@title" >
+                                </div>
+                                <h2 class="font-YekanBakh700 text-lg leading-8 text-StarDust800 mb-2  ">
+                                    @title
+                                </h2>
+        
+                                <div class="more w-fit flex items-center gap-x-1.5   relative after:absolute after:bg-StarDust800 after:right-0 after:bottom-0 after:w-0 after:h-px after:transition-all after:duration-700 group-hover/proj:after:w-full">
+                                    <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.78174 0.5L0.495655 2.77076C0.177501 3.10187 -2.00074e-08 3.54243 0 4.00015C2.00074e-08 4.45786 0.177501 4.8977 0.495655 5.22881L2.78174 7.50015L3.60657 6.68084L1.48791 4.58347L14 4.58348L13.9998 3.41681L1.48791 3.41681L3.60657 1.3193L2.78174 0.5Z" fill="#58585A"/>
+                                        </svg>
+                                        
+                                    <span class="font-IRANSansWebFaNum400 text-base text-StarDust800">
+                                        مشاهده‌ی پروژه
+                                    </span>
+        
+                                </div>
+                            </a>
+                        </div>
                     </div>
+                  
                 </face>
             </basis>
-            <basis core="call" file="footer1.inc" />
+            <basis core="call" file="footer1.inc" pageindex="[##cms.cms.pageindex##]" />
         </main>
 
-        <basis core="call" file="script.inc" />
+        <basis core="call" file="script.inc" pageindex="[##cms.cms.pageindex##]" />
         <script src="[##cms.cms.cdn##]/_js/swiper-bundle11.0.5.min.js"></script>
-        <script src="[##cms.cms.cdn##]/js/article.js"></script>
+        <script src="[##cms.cms.cdn##]/js/article-mobile.js"></script>
         <script type="application/ld+json">
         [##json.fq.column1##]
       </script>

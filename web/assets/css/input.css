@@ -60,12 +60,12 @@
 }
 @font-face {
   font-family: "IRANSansWeb400";
-  src: url("../_fonts/IRANSansWebRegular.eot");
-  src: url("../_fonts/IRANSansWebRegular.eot?#iefix")
+  src: url("../_fonts/IRANSansWeb.eot");
+  src: url("../_fonts/IRANSansWeb.eot?#iefix")
       format("embedded-opentype"),
-    url("../_fonts/IRANSansWebRegular.woff") format("woff"),
-    url("../_fonts/IRANSansWebRegular.woff2") format("woff2"),
-    url("../_fonts/IRANSansWebRegular.ttf") format("truetype");
+    url("../_fonts/IRANSansWeb.woff") format("woff"),
+    url("../_fonts/IRANSansWeb.woff2") format("woff2"),
+    url("../_fonts/IRANSansWeb.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -226,6 +226,10 @@
 }
 .popFooter form fieldset [data-bc-schema-column] [data-bc-question] {
   width: 100%;
+  margin-bottom: 0px!important;
+}
+.popFooter form [data-bc-schema-column]{
+  margin-bottom: 24px;
 }
 .projectList .section2 .projectBox:nth-child(3n + 1),
 .projectList .section2 .projectBox:nth-child(3n) {
@@ -259,4 +263,13 @@
 
 .searchPage header{
   position: sticky!important;
+}
+
+.homePage .mapSectoin iframe{
+  width: 100%;
+  filter: invert(1) grayscale(1);
+}
+
+.formContainer .formBtn {
+margin-top: 32px;
 }

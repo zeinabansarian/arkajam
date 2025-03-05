@@ -1,0 +1,465 @@
+<basis core="dbsource" request="seo" source="basiscore" name="db" lid="1">
+    <member name="seolist" type="list" request="product" id="[##cms.query.id##]"></member>
+</basis>
+<basis core="dbsource" source="basiscore" name="json" lid="1" usedforid="[##cms.query.id##]">
+    <member request="json-ld" type="scalar" name="fq" />
+</basis>
+<basis core="dbsource" name="db" source="basiscore" lid="1" mid="20" usedforid="[##cms.query.id##]">
+    <member name="product" type="view" />
+</basis>
+<basis core="dbsource" name="db" source="media" lid="1" sourcemid="20" usedforid="[##cms.query.id##]">
+    <member name="productGallery" type="list" format="4" />
+</basis>
+<basis core="dbsource" name="db" source="basiscore" lid="1" mid="20" usedforid="[##cms.query.id##]">
+    <member name="relatedproduct" type="list" blgid="18" size="320x240" />
+</basis>
+<basis core="dbsource" name="db" source="basiscore" lid="1" mid="20" usedforid="[##cms.query.id##]">
+    <member name="relatedblog" type="list" blgid="218" size="320x240" propertyid="7244,7249"
+        postsql=" select *, SUBSTR(prp_7244, 1,230-CHARINDEX(' ', REVERSE(SUBSTR(prp_7244, 1, 230)))) || '...' as substr from [db.relatedblog]" />
+</basis>
+<basis core="dbsource" name="db" source="basiscore" lid="1" mid="20" usedforid="[##cms.query.id##]">
+    <member name="relatedproject" type="list" blgid="1527" size="280x240" />
+</basis>
+<basis core="dbsource" source="userbehavior" name="db" lid="1" userid="100001" usedforid="[##cms.query.id##]">
+    <member request="listcomment" type="list" name="commentlist" link="product.bc" />
+</basis>
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <basis core="print" datamembername="db.seolist">
+        <face>
+            <title>[##cms.seo.title|db.seolist.title##]</title>
+            <meta name="description" content="[##cms.seo.description|db.seolist.description##]" />
+        </face>
+    </basis>
+    <link rel="stylesheet" href="[##cms.cms.cdn##]/css/swiper-bundle.min.css">
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]"/>
+</head>
+
+<body>
+    <main class="productShow bg-StarDust50" dir="rtl">
+        <basis core="call" file="header1.inc" pageindex="[##cms.cms.pageindex##]"/>
+
+        <section class="section1 mb-10">
+            <div class="breadCrumb  z-1 pt-[60px] mb-5 w-90p mx-auto">
+                <a href="/" class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
+                    خانه
+                </a>
+                <span class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
+                    .
+                </span>
+
+                <a href="/product-list.bc" class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
+                    محصولات
+                </a>
+                <span class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
+                    .
+                </span>
+                <basis core="print" datamembername="db.product">
+
+                    <face filter="TypeID=150">
+                        <p class="inline font-YekanBakh400 text-xs leading-[28px] text-StarDust600">
+                            @Answer
+                        </p>
+
+                    </face>
+                </basis>
+            </div>
+            <div class="mb-10 w-90p mx-auto">
+                <basis core="print" datamembername="db.product">
+
+                    <face filter="TypeID=150">
+                        <h1 class="font-IRANSansWebFaNum700 mb-10 text-2xl leading-10">
+                            @Answer
+
+                        </h1>
+
+                    </face>
+                </basis>
+                <div class="rSec ">
+                    <basis core="print" datamembername="db.productGallery">
+                        <layout>
+                            <div class="swiper imgSlider">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- Slides -->
+
+                                    @child
+                                </div>
+
+                                <div class="swiper-pagination imgSliderPagination !relative mt-6 flex items-center justify-center"></div>
+
+                            </div>
+                        </layout>
+
+                        <face filter="ord=1000">
+                            <div class="swiper-slide">
+                                <div class="imgS">
+                                    <img class="w-full" src="[##cms.cms.cdn##]/@largeIMG" alt="@name">
+                                </div>
+                            </div>
+                        </face>
+                    </basis>
+
+
+                </div>
+                <div class="lSec">
+
+
+                    <basis core="print" datamembername="db.product">
+                        <layout>
+                            <div class="schemas">
+                                <h3 class="font-IRANSansWebFaNum700 mb-3 text-xl leading-9">
+                                    مشخصات فنی
+                                </h3>
+
+                                <ul>
+                                    @child
+                                </ul>
+                            </div>
+                        </layout>
+                        <face filter="TypeID not in (150,144,159,200)">
+                            <li class="flex items-center gap-x-2 mb-1 flex-wrap">
+                                <span
+                                    class="font-IRANSansWebFaNum700 whitespace-nowrap text-StarDust800 text-lg leading-8 ">
+                                    @Question :
+                                </span>
+                                <p
+                                    class="font-IRANSansWebFaNum400 whitespace-nowrap text-base leading-7 text-StarDust800">
+                                    @Answer
+                                </p>
+                            </li>
+                        </face>
+                    </basis>
+                </div>
+            </div>
+        </section>
+
+        <basis core="print" datamembername="db.product">
+            <layout>
+                <section class="section2 w-90p mx-auto mb-10">
+                    <h2 class="font-IRANSansWebFaNum700 mb-3 text-xl text-StarDust950 leading-9">
+                        توضیحات محصول
+                    </h2>
+                    <div class="para font-IRANSansWebFaNum400 text-base leading-7 text-justify text-StarDust800">
+                        @child
+                    </div>
+                </section>
+            </layout>
+
+            <face filter="TypeID=144">
+                @Answer
+            </face>
+        </basis>
+        <basis core="print" datamembername="db.product">
+            <layout>
+                <section class="section3 w-90p mx-auto pb-8 border-b border-b-black mb-3">
+                    <h2 class="font-IRANSansWebFaNum700 mb-3 text-xl leading-9 text-StarDust950">
+                        تگ‌ها
+                    </h2>
+
+                    <div class="flex flex-wrap gap-4">
+                        @child
+                    </div>
+                </section>
+            </layout>
+
+            <face filter="TypeID=200">
+                <span
+                    class="p-1.5 font-IRANSansWebFaNum400 text-base leading-7 text-StarDust800 border border-StarDust400"
+                    title="@title">
+                    @Answer
+                </span>
+
+            </face>
+        </basis>
+
+
+        <section class="section4 w-90p mx-auto mb-7 mb-16">
+            <div class="">
+                <h3 class="font-IRANSansWebFaNum700 leading-8 text-xl mb-6 text-StarDust950">
+                    ثبت نظر
+                </h3>
+                <div class="commentForm">
+                    <basis core="dbsource" source="userbehavior" name="db" title="{##db.senduserName.value##}"
+                        run="atclient" triggers="db.sendcomment" if="{##db.sendcomment##}" parentid="0"
+                        usedforid="[##cms.query.id##]" userid="100005" mid="20" comment="{##db.sendcomment.value##}">
+                        <member request="comment" type="scalar" name="comment" preview="true" onRendered="renderCommentFn" />
+                    </basis>
+
+                    <form action="" class="commentP">
+                        <div class="userInfo mb-4">
+                            <div class="nameInput relative">
+                                <input
+                                    class="w-full userName outline-0 mb-3 text-right font-IRANSansWebFaNum400 text-base text-StarDust600 py-1.5 placeholder:font-IRANSansWebFaNum400 border-b border-b-StarDust400"
+                                    type="text" placeholder="نام و نام خانوادگی" />
+                            </div>
+                            <div class="emailInput relative">
+                                <input type="email"
+                                    class="w-full outline-0 mb-3 text-right font-IRANSansWebFaNum400 text-base text-StarDust600 py-1.5 placeholder:font-IRANSansWebFaNum400 border-b border-b-StarDust400"
+                                    placeholder="ایمیل" />
+                            </div>
+                            <div class="tellInput relative">
+                                <input type="tel"
+                                    class="w-full outline-0 mb-3 text-right font-IRANSansWebFaNum400 text-base text-StarDust600 py-1.5 placeholder:font-IRANSansWebFaNum400 border-b border-b-StarDust400"
+                                    placeholder="تلفن همراه" />
+                            </div>
+                        </div>
+                        <div class="msg">
+                            <div class="msgInput relative">
+                                <textarea
+                                    class="w-full outline-0 mb-3 text-right font-IRANSansWebFaNum400 text-base text-StarDust600 py-1.5 placeholder:font-IRANSansWebFaNum400 border-b border-b-StarDust400"
+                                    name="message" id="message" placeholder="دیدگاه خود را بنویسید..."></textarea>
+                            </div>
+                        </div>
+                        <div class="messageSend font-IRANSansWebFaNum400 text-StarDust600 text-base">
+                            <p></p>
+                        </div>
+                        <div class="btnsContainer  mt-6">
+                            <basis core="dbsource" source="trust_login" name="captcha1" triggers="cms.reload1"
+                                run="atclient">
+                                <member name="code1" type="scalar" request="captcha"></member>
+                            </basis>
+                            <basis datamembername="captcha1.code1" core="print" run="atclient">
+                                <face>
+                                    <script type="text/template">
+                                    <div class="captchaContain  flex items-center gap-x-3 py-2 flex-row-reverse">
+                        <span class="captcha-sefaresh shrink-0">
+                            <img src="/@captcha@" width="88" height="44" class="captcha-sefaresh"
+                                alt="captcha" title="captcha" />
+                            <input type="hidden" name="captchaid" value="@captcha@" />
+                        </span>
+
+                    <img src="[##cms.cms.cdn##]/images/cached.png" class="refressh refressh1 cursor-pointer" run="atclient" bc-triggers="click" bc-name="cms.reload1" />
+
+                        <input type="text" class="codeinputm w-full border-b border-b-StarDust400 py-1.5 font-IRANSansWebFaNum400 text-base text-StarDust600 placeholder:font-IRANSansWebFaNum400 placeholder:text-base placeholder:text-StarDust600 " placeholder="عبارت امنیتی را وارد کنید"
+                        name="captcha" />
+                    </div>
+                  </script>
+                                </face>
+                            </basis>
+                            <button type="button" class="submitComment cursor-pointer justify-center flex items-center gap-x-2">
+                                <svg width="14" height="8" viewBox="0 0 14 8" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2.78174 0.5L0.495655 2.77076C0.177501 3.10187 -2.00074e-08 3.54243 0 4.00015C2.00074e-08 4.45786 0.177501 4.8977 0.495655 5.22881L2.78174 7.50015L3.60657 6.68084L1.48791 4.58347L14 4.58348L13.9998 3.41681L1.48791 3.41681L3.60657 1.3193L2.78174 0.5Z"
+                                        fill="#2B2C2C" />
+                                </svg>
+
+                                <span class="font-IRANSansWebFaNum400 text-base text-StarDust950 whitespace-nowrap">
+                                    ارسال فرم
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+             
+            </div>
+            <div class="mt-10">
+                <h3 class="font-IRANSansWebFaNum700 text-xl mb-6 text-StarDust950">
+                    نظرات ثبت شده
+                </h3>
+                <div class="commentList flex items-center">
+                    <!-- Slider main container -->
+                    <div class="swiper commentListSlider w-full">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                             <basis core="print" datamembername="db.commentlist">
+                                 
+                                 <else-layout>
+                                     
+                                     <div class="swiper-slide border border-StarDust400 !flex flex-col justify-center min-h-[353px] pr-3 pl-5 text-center font-IRANSansWebFaNum400 text-base text-StarDust950">
+                                        هنوز کامنتی ثبت نشده است.
+                                        <br>
+                                        شما اولین نفر باشید
+                                     </div>
+                                 </else-layout>
+                                 <face>
+                                     <div class="swiper-slide border border-StarDust400 !flex flex-col justify-center min-h-[353px] pr-3 pl-5">
+                                         <span class="font-IRANSansWebFaNum400 mb-8 leading-7 text-base block">
+                                          @username
+                                         </span>
+     
+                                         <div class="para font-IRANSansWebFaNum400 text-base text-justify text-StarDust800">
+                                             <p>
+                                               @comment 
+                                             </p>
+                                         </div>
+                                     </div>
+                                     
+                                 </face>
+                             </basis>
+                        </div>
+
+                      
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <basis core="print" datamembername="db.relatedproduct">
+            <layout>
+                <section class="section65 mb-16 w-90p mx-auto">
+                    <h4 class="font-IRANSansWebFaNum700 leading-[35px] text-xl text-StarDust950 mb-8">
+                        محصولات مرتبط
+                    </h4>
+                    <div class="swiper relatedProductSlider">
+                        <div class="swiper-wrapper">
+
+                            @child
+                        </div>
+                    
+                    </div>
+                </section>
+            </layout>
+
+            <face>
+                <div class="swiper-slide">
+                    <div class="projectBox">
+                        <a href="/@link" class="group/proj" title="@title">
+                            <div class="imgS mb-2">
+                                <img loading="lazy" class="w-full grayscale-100 duration-1000 group-hover/proj:grayscale-0" src="[##cms.cms.cdn##]/@00320X00240prp" alt="@title" >
+                            </div>
+                            <h2 class="font-IRANSansWebFaNum700 text-lg leading-[32px] text-StarDust800 mb-2  ">
+                                @title
+                            </h2>
+    
+                            <div class="more w-fit flex items-center gap-x-1.5   relative after:absolute after:bg-StarDust800 after:right-0 after:bottom-0 after:w-0 after:h-px after:transition-all after:duration-700 group-hover/proj:after:w-full">
+                                <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.28174 0.499878L0.995655 2.77063C0.677501 3.10175 0.5 3.54231 0.5 4.00002C0.5 4.45774 0.677501 4.89758 0.995655 5.22869L3.28174 7.50002L4.10657 6.68072L1.98791 4.58335L14.5 4.58336L14.4998 3.41669L1.98791 3.41669L4.10657 1.31918L3.28174 0.499878Z" fill="#58585A"/>
+                                    </svg>
+                                <span class="font-IRANSansWebFaNum400 text-base text-StarDust800">
+                                    مشاهده‌ی پروژه
+                                </span>
+    
+                            </div>
+                        </a>
+                    </div>
+                </div>
+               
+            </face>
+        </basis>
+
+        <basis core="print" datamembername="db.relatedproject">
+            <layout>
+                <section class="section7 mb-16 w-90p mx-auto">
+                    <h4 class="font-IRANSansWebFaNum700 text-xl leading-[35px] text-StarDust950 mb-8">
+                        پروژه‌های مرتبط
+                    </h4>
+                    <div class="swiper relatedProjectSlider">
+                        <div class="swiper-wrapper">
+
+                            @child
+                        </div>
+                    </div>
+                </section>
+            </layout>
+            <face>
+                <div class="swiper-slide border-r last:border-l border-StarDust400 px-5">
+                    <div class="projectBox mb-8">
+                        <a href="/@link" class="group/proj" title="@title">
+                            <div class="imgS mb-2">
+                                <img loading="lazy" class="w-full grayscale-100 duration-1000 group-hover/proj:grayscale-0" src="[##cms.cms.cdn##]/@00280X00240prp" alt="@title" >
+                            </div>
+                            <h2 class="font-YekanBakh700 text-lg leading-8 text-StarDust800 mb-2  ">
+                                @title
+                            </h2>
+    
+                            <div class="more w-fit flex items-center gap-x-1.5   relative after:absolute after:bg-StarDust800 after:right-0 after:bottom-0 after:w-0 after:h-px after:transition-all after:duration-700 group-hover/proj:after:w-full">
+                                <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.78174 0.5L0.495655 2.77076C0.177501 3.10187 -2.00074e-08 3.54243 0 4.00015C2.00074e-08 4.45786 0.177501 4.8977 0.495655 5.22881L2.78174 7.50015L3.60657 6.68084L1.48791 4.58347L14 4.58348L13.9998 3.41681L1.48791 3.41681L3.60657 1.3193L2.78174 0.5Z" fill="#58585A"/>
+                                    </svg>
+                                    
+                                <span class="font-IRANSansWebFaNum400 text-base text-StarDust800">
+                                    مشاهده‌ی پروژه
+                                </span>
+    
+                            </div>
+                        </a>
+                    </div>
+                </div>
+              
+            </face>
+        </basis>
+
+        <basis core="print" datamembername="db.relatedblog">
+            <layout>
+                <section class="section6 w-90p mx-auto mb-16">
+                    <h4 class="font-IRANSansWebFaNum700 text-xl leading-9 text-StarDust950 mb-8">
+                        مقالات مرتبط
+                    </h4>
+
+                    <div class="relatedBlog swiper">
+                        <div class="swiper-wrapper">
+
+                            @child
+                        </div>
+                    
+                    </div>
+                </section>
+            </layout>
+
+            <face>
+                <div class="swiper-slide">
+                    <div class="projectBox">
+                        <a href="/@link" class="group/proj" title="@title">
+                            <div class="imgS mb-2">
+                                <img loading="lazy"
+                                    class="w-full grayscale-100 duration-1000 group-hover/proj:grayscale-0"
+                                    src="[##cms.cms.cdn##]/@00320X00240prp" alt="@title">
+                            </div>
+                            <span class="font-IRANSansWebFaNum400 text-xs text-StarDust800 mt-2 block mb-1">
+                                تاریخ: @prp_7249
+                            </span>
+                            <h2 class="font-IRANSansWebFaNum700 text-lg leading-8 text-StarDust800 mb-1  ">
+                                @title
+                            </h2>
+                            <div
+                                class="para font-IRANSansWebFaNum400 text-base leading-[28px] text-justify text-StarDust800">
+                                <p>
+                                    @substr
+                                </p>
+                            </div>
+                            <div
+                                class="more w-fit flex items-center gap-x-1.5   relative after:absolute after:bg-StarDust800 after:right-0 after:bottom-0 after:w-0 after:h-px after:transition-all after:duration-700 group-hover/proj:after:w-full">
+                                <svg width="15" height="8" viewBox="0 0 15 8" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M3.28174 0.499878L0.995655 2.77063C0.677501 3.10175 0.5 3.54231 0.5 4.00002C0.5 4.45774 0.677501 4.89758 0.995655 5.22869L3.28174 7.50002L4.10657 6.68072L1.98791 4.58335L14.5 4.58336L14.4998 3.41669L1.98791 3.41669L4.10657 1.31918L3.28174 0.499878Z"
+                                        fill="#58585A" />
+                                </svg>
+                                <span class="font-IRANSansWebFaNum400 text-base text-StarDust800">
+                                    ادامه‌ی مطلب
+                                </span>
+
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+             
+            </face>
+        </basis>
+
+        <basis core="call" file="footer1.inc" pageindex="[##cms.cms.pageindex##]"/>
+
+
+    </main>
+    <basis core="call" file="script.inc" pageindex="[##cms.cms.pageindex##]"/>
+
+    <script src="[##cms.cms.cdn##]/_js/swiper-bundle11.0.6.min.js"></script>
+    <script src="[##cms.cms.cdn##]/js/product-mobile.js"></script>
+
+    <script type="application/ld+json">
+        [##json.fq.column1##] 
+        </script>
+</body>
+
+</html>
